@@ -1,0 +1,19 @@
+{% if pagination|length > 1 %}
+<div class="blog-pager" id="blog-pager">
+    <div class="pagenavi">
+    {% if pagination.hasPrev %}
+        <a rel="prev" href="{{ base_url }}{{ pagination.params }}{{ pagination.prevUrl }}">&laquo;</a>
+    {% endif %}
+    {% for paginate in pagination %}
+        {% if paginate.isCurrent %}
+            <span class="current">{{ paginate.number }}</span>
+        {% elseif paginate.isInDelta %}
+            <a href="{{ base_url }}{{ pagination.params }}{{ paginate.url }}">{{ paginate.number }}</a>
+        {% endif %}
+    {% endfor %}
+    {% if pagination.hasNext %}
+        <a rel="next" href="{{ base_url }}{{ pagination.params }}{{ pagination.nextUrl }}">&raquo;</a>
+    {% endif %}
+    </div>
+</div>
+{% endif %}

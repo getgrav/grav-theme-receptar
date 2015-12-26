@@ -1,0 +1,26 @@
+<div id="masthead" role="banner" class="affix-top">
+  <div class="container">
+    <div class="navbar navbar-inverse">
+      <div class="navbar-inner">
+        <div class="btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button"><img src="{{ theme_url }}/images/bmenu.png"></div>
+        <div class="header section" id="header"><div class="widget Header" id="Header1">
+          <div id="header-inner">
+            {% if site.title  %}
+              <div class="titlewrapper">
+                <h1 class="title">
+                  <a href='{{ base_url_absolute }}' style='display: block'>{{ site.title }}</a>
+                </h1>
+              </div>
+            {% endif %}
+          </div>
+        </div></div>
+        <div class="nav-collapse collapse">
+          {% block navigation %}
+              {% include 'partials/navigation.html.twig' %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+</div>

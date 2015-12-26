@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" class='{% if browser.getBrowser == 'msie' and browser.getVersion == 7 and browser.getVersion == 8 %}{% else %}v2{% endif %} {% if browser.getBrowser == 'msie' and browser.getVersion == 7 %}ie ie7 ltie8 ltie9{% endif %} {% if browser.getBrowser == 'msie' and browser.getVersion == 8 %}ie ie8 ltie9{% endif %}'>
+<head>
+    {% block head %}
+        <meta charset="utf-8" />
+        <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+        {% include 'partials/metadata.html.twig' %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png" />
+        <!--[if IE]> <script> (function() { var html5 = ("abbr,article,aside,audio,canvas,datalist,details," + "figure,footer,header,hgroup,mark,menu,meter,nav,output," + "progress,section,time,video").split(','); for (var i = 0; i < html5.length; i++) { document.createElement(html5[i]); } try { document.execCommand('BackgroundImageCache', false, true); } catch(e) {} })(); </script> <![endif]-->
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'/>
+        <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'/>
+        <link href='//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css' rel='stylesheet'/>
+        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab%3A400%2C700&ver=4.2.2' id='roboto-slab-css' media='all' rel='stylesheet' type='text/css'/>
+        <meta name="google-translate-customization" content="{{ site.google_translate_token }}">
+        {% block stylesheets %}
+            {% do assets.addCss('theme://css/widget.css') %}
+            {% do assets.addCss('theme://css/style.css') %}
+            {% do assets.addCss('theme://css/content.css') %}
+            {% do assets.addCss('theme://css/sidebar.css') %}
+            {% do assets.addCss('theme://css/lightbox.css') %}
+            {% if browser.getBrowser == 'msie' and browser.getVersion >= 7 and browser.getVersion <= 8 %}
+                {% do assets.addCss('theme://css/ie.css') %}
+            {% endif %}
+        {% endblock %}
+        {{ assets.css() }}
+
+        {% block javascripts %}
+            {% do assets.add('jquery',101) %}
+            {% do assets.add('theme://js/scripts.js') %}
+            {% do assets.add('theme://js/video.js') %}
+        {% endblock %}
+        {{ assets.js() }}
+
+        <script>
+        $(document).ready(function(){
+          $(".widget h2").wrapInner("<span></span>");
+        });
+        </script>
+
+        {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        {% endif %}
+
+    {% endblock head %}
+</head>
+<body>
+  <div class="firstload-background">
+  </div>
+  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+
+  <div class="site" id="page">
+    {% block header %}
+      {% include 'partials/header.html.twig' %}
+    {% endblock %}
+    <div class="clear"></div>
+    {% block body %}
+    <div class='container' id="content-wrapper">
+      <div class="row" id="primary">
+      {% block content %}{% endblock %}
+    </div>
+    </div>
+    {% endblock %}
+
+    {% block footer %}
+      {% include 'partials/footer.html.twig' %}
+    {% endblock %}
+  </div>
+
+    </body>
+    </html>

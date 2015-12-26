@@ -1,0 +1,14 @@
+{% for related_path, score in related_pages %}
+{% set related = grav['pages'].get(related_path) %}
+{% if related %}
+  <div class="item-img">
+    {% if related.media.images|first %}
+    {{ related.media.images|first.forceResize(230,160).html }}
+    {% else %}
+    <a href="{{ related.url }}" title="{{ related.title }}">
+      <img src='' title="{{ related.title }}" alt="{{ related.title }}" style="width:222px;height:154px;">
+    </a>
+    {% endif %}
+</div>
+{% endif %}
+{% endfor %}

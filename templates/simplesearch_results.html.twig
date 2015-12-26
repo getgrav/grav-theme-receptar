@@ -1,0 +1,23 @@
+{% extends 'partials/simplesearch_base.html.twig' %}
+
+{% block content %}
+
+    {% block masterslider %}{% endblock %}
+
+        <div class="above-sidebar-wrapper"><section id="content-section-1"><div class="gdlr-color-wrapper  gdlr-show-all no-skin" style="padding-top: 0px; padding-bottom: 30px; "><div class="container"><div class="gdlr-master-slider-item gdlr-slider-item gdlr-item">
+        </div><div class="clear"></div></div></div><div class="clear"></div></section></div>   
+        
+    {% include 'partials/blog_sidebar_header.html.twig' %}
+
+    <h1 class="search-header">Search Results</h1>
+    {% include 'partials/simplesearch_searchbox.html.twig' %}
+
+    <p><br />Query: <strong>{{ query }}</strong> found {{ search_results.count }} {{ 'result'|pluralize(search_results.count) }}</p>
+
+    {% for page in search_results %}
+        {% include 'partials/blog_item.html.twig' with {'page':page, 'truncate':true} %}
+    {% endfor %}
+
+    {% include 'partials/blog_sidebar_footer.html.twig' %}
+
+{% endblock %}

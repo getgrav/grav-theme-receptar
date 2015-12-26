@@ -1,0 +1,270 @@
+{% if not truncate %}
+<link type="text/css" rel="stylesheet" href="{{ theme_url }}/css/item.css" />
+{% endif %}
+<div class="post">
+  <div class="entry-container">
+    <div class="entry-content">
+
+      {% if page.header.link %}
+      <h1 class="entry-title">
+        {% if page.header.continue_link is not sameas(false) %}
+          <a href="{{ page.url }}"><i class="fa fa-angle-double-right"></i></a>
+        {% endif %}
+          <a href="{{ page.header.link }}">{{ page.title }}</a>
+      </h1>
+      {% else %}
+      <h1 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+      {% endif %}
+      {% if truncate %}
+
+        <div class="meta">
+          <div><i class="fa fa-clock-o"></i> {{ page.date|date(config.system.pages.dateformat.long) }}</div>
+          <div><i class="fa fa-user"></i> <span style="color:#E74C3C">
+            {% if page.header.author.name or site.author.name %}
+            {% if page.header.author.name %}
+            {% if page.header.author.url %}
+            <a href="{{ page.header.author.url }}">{{ page.header.author.name }}</a>
+            {% else %}
+            {{ page.header.author.name }}
+            {% endif %}
+            {% else %}
+            {% if site.author.url %}
+            <a href="{{ site.author.url }}">{{ site.author.name }}</a>
+            {% else %}
+            {{ site.author.name }}
+            {% endif %}
+            {% endif %}
+            {% endif %}
+          </span></div>
+          {% if page.taxonomy.tag %}
+          <div> <i class="fa fa-tags"></i>
+            {% for tag in page.taxonomy.tag %}
+            <a href="{{ base_url }}/tag:{{ tag }}" rel="tag">{{ tag }}{% if not loop.last %}, {% endif %}</a>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      {% else %}
+      <div class="meta1">
+        <p>
+          <small>
+            <span><i class="fa fa-clock-o"></i> {{ page.date|date(config.system.pages.dateformat.long) }}</span>
+            <span><i class="fa fa-user"></i>
+              {% if page.header.author.name or site.author.name %}
+              {% if page.header.author.name %}
+              {% if page.header.author.url %}
+              <a href="{{ page.header.author.url }}">{{ page.header.author.name }}</a>
+              {% else %}
+              {{ page.header.author.name }}
+              {% endif %}
+              {% else %}
+              {% if site.author.url %}
+              <a href="{{ site.author.url }}">{{ site.author.name }}</a>
+              {% else %}
+              {{ site.author.name }}
+              {% endif %}
+              {% endif %}
+              {% endif %}
+            </span>
+            {% if page.taxonomy.tag %}
+            <span> <i class="fa fa-tags"></i>
+              {% for tag in page.taxonomy.tag %}
+              <a href="{{ base_url }}/tag:{{ tag }}" rel="tag">{{ tag }}{% if not loop.last %}, {% endif %}</a>
+              {% endfor %}
+            </span>
+            {% endif %}
+          </small>
+        </p>
+      </div>
+      {% endif %}
+
+      <div class="clear"></div>
+
+      <div class="{% if truncate %}entry-{% if page.header.youtube or page.header.soundcloud or page.header.vimeo %}video{% else %}image{% endif %}{% else %} resp_video{% endif %}">
+        {% if page.header.youtube %}
+        <iframe src="{{ page.header.youtube }}?showinfo=0" frameborder="0" allowfullscreen style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
+        {% endif %}
+        {% if page.header.vimeo %}
+        <iframe src="{{ page.header.vimeo }}" frameborder="0" allowfullscreen="" data-aspectratio="0.5619047619047619" style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
+        {% endif %}
+        {% if page.header.soundcloud %}
+        <iframe width="100%" height="403" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ page.header.soundcloud }}&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true&amp;buying=false"></iframe>
+        {% endif %}
+        {% if page.media.images|first %}
+          {{ page.media.images|first.cropZoom(750,422).html('','', 'thumb') }}
+        {% endif %}
+      </div>
+
+            {% if page.header.continue_link is sameas(false) %}
+            {{ page.content }}
+            {% if not truncate %}
+            {% set show_prev_next = true %}
+            {% endif %}
+            {% elseif truncate and page.summary != page.content %}
+            {{ page.summary }}
+            {% elseif truncate %}
+            {{ page.content|truncate(550) }}
+            {% else %}
+            {{ page.content }}
+            {% set show_prev_next = true %}
+            {% endif %}
+
+            <div class="entry-meta clearfix">
+              <div class="up_arrow"></div>
+              <div class="pull-right share-story-container">
+                <ul class="share-story">
+                  <li>
+                    <a href="http://www.facebook.com/share.php?u={{ page.url(true) }}" target="_blank">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://twitter.com/home?status={{ page.title|replace({' ': "%20"}) }}-{{ page.url(true) }}" target="_blank">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://digg.com/submit?url={{ page.url(true) }}&amp;title={{ page.title|replace({' ': "%20"}) }}" target="_blank">
+                      <i class="fa fa-digg"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://reddit.com/submit?url={{ page.url(true) }}&amp;title={{ page.title|replace({' ': "%20"}) }}" target="_blank">
+                      <i class="fa fa-reddit"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ page.url(true) }}&amp;title={{ page.title|replace({' ': "%20"}) }}" target="_blank">
+                      <i class="fa fa-linkedin"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              {% if page.header.continue_link is not sameas(false) %}
+                {% if truncate and page.summary != page.content %}
+                  <div class="pull-left"><a href="{{ page.url }}" class="read-more">Continue Reading</a></div>
+                {% elseif truncate %}
+                  <div class="pull-left"><a href="{{ page.url }}" class="read-more">Continue Reading</a></div>
+                {% endif %}
+              {% endif %}
+              <div class="clear"></div>
+            </div>
+
+            {% if not truncate %}
+            <div class="author-meta box">
+              {% if page.header.author %}
+              {% if page.header.author.logo or page.header.author.gravatar %}
+              <div class="author-image">
+                {% if page.header.author.gravatar %}
+                  <img src="http://www.gravatar.com/avatar/{{ page.header.author.gravatar|md5 }}?s=90" class="avatar-author" alt="Gravatar"/>
+                {% elseif page.header.author.logo  %}
+                  <img src="{{ page.media.images[page.header.author.logo].url }}" class="avatar-author" />
+                {% endif %}
+              </div>
+              {% endif %}
+              <div class="author-body">
+                <h2 class="vcard author">
+                  {% if page.header.author.url %}
+                  <a href="{{ page.header.author.url }}" rel="author">{{ page.header.author.name }}</a>
+                  {% else %}
+                  {{ page.header.author.name }}
+                  {% endif %}
+                </h2>
+                <p>
+                  {{ page.header.author.description }}
+                </p>
+              </div>
+              {% else %}
+              {% if site.author.logo or site.author.gravatar %}
+              <div class="author-image">
+                {% if site.author.gravatar  %}
+                  <img src="http://www.gravatar.com/avatar/{{ site.author.gravatar|md5 }}?s=90" class="avatar-author" alt="Gravatar"/>
+                {% elseif site.author.logo  %}
+                  <img src="{{ theme_url }}/images/{{ site.author.logo }}" class="avatar-author" />
+                {% endif %}
+              </div>
+              {% endif %}
+              <div class="author-body">
+                <h2 class="vcard author">
+                  {% if site.author.url %}
+                  <a href="{{ site.author.url }}" rel="author">{{ site.author.name }}</a>
+                  {% else %}
+                  {{ site.author.name }}
+                  {% endif %}
+                </h2>
+                <p>
+                  {{ site.author.description }}
+                </p>
+              </div>
+              {% endif %}
+
+              <div class="clear"></div>
+            </div>
+            {% endif %}
+
+            {% if not truncate %}
+            <div class="related_posts">
+              <div id="related-posts">
+                <div class="title">
+                  <h4>Related Posts</h4>
+                </div>
+                <div class="carousel_related owl-carousel owl-theme" id="owl-demo">
+                  {% include 'partials/relatedpages.html.twig' %}
+                </div>
+              </div>
+              <div style="clear:both"></div>
+            </div>
+            <script type='text/javascript'>
+              $(document).ready(function() {
+                $("#owl-demo").owlCarousel({
+                  autoPlay: 3000,
+                  items : 3,
+                  itemsDesktop : [1200,3],
+                  itemsDesktopSmall : [980,2],
+                  itemsMobile : [480,1]
+                });
+              });
+              </script>
+            {% endif %}
+
+      {% if not truncate %}
+        {% if config.plugins.jscomments.enabled and config.plugins.jscomments.provider %}
+        <div class="comments" id="comments">
+          <h4>Comments:</h3>
+          <div class="comments-content">
+            {{ jscomments(config.plugins.jscomments.provider) }}
+          </div>
+        </div>
+        {% endif %}
+
+        {% if config.plugins.comments.enabled %}
+        <div class="comments" id="comments">
+          <h4>{{ grav.twig.comments|length }} Comments:</h3>
+          <div class="comments-content">
+            {% include 'partials/comments.html.twig' with {'page': page} %}
+          </div>
+        </div>
+        {% endif %}
+
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% if show_prev_next %}
+<div class="blog-pager" id="blog-pager">
+  {% if not page.isFirst %}
+  <span id="blog-pager-newer-link">
+    <a class="blog-pager-newer-link" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> Newer Post</a>
+  </span>
+  {% endif %}
+
+  {% if not page.isLast %}
+  <span id="blog-pager-older-link">
+    <a class="blog-pager-older-link" href="{{ page.prevSibling.url }}">Older Post <i class="fa fa-chevron-right"></i></a>
+  </span>
+  {% endif %}
+  <a class="home-link" href="{{ base_url_absolute }}">Home</a>
+</div>
+{% endif %}
