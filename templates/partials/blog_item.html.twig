@@ -1,19 +1,36 @@
-<div class="post">
-  <div class="entry-container">
-    <div class="entry-content">
-
-      {% if page.header.link %}
-      <h1 class="entry-title">
-        {% if page.header.continue_link is not sameas(false) %}
-          <a href="{{ page.url }}"><i class="fa fa-angle-double-right"></i></a>
-        {% endif %}
-          <a href="{{ page.header.link }}">{{ page.title }}</a>
-      </h1>
-      {% else %}
-      <h1 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+<article id="post-{{ loop.index }}" class="post-{{ loop.index }} post type-post status-publish format-standard has-post-thumbnail hentry category-cakes tag-no-excerpt">
+    <div class="entry-media {% if truncate %}entry-{% if page.header.youtube or page.header.soundcloud or page.header.vimeo %}video{% else %}image{% endif %}{% else %} resp_video{% endif %}">
+      {% if page.header.youtube %}
+      <iframe src="{{ page.header.youtube }}?showinfo=0" frameborder="0" allowfullscreen style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
       {% endif %}
-      {% if truncate %}
+      {% if page.header.vimeo %}
+      <iframe src="{{ page.header.vimeo }}" frameborder="0" allowfullscreen="" data-aspectratio="0.5619047619047619" style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
+      {% endif %}
+      {% if page.header.soundcloud %}
+      <iframe width="100%" height="403" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ page.header.soundcloud }}&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true&amp;buying=false"></iframe>
+      {% endif %}
+      {% if page.media.images|first %}
+        {{ page.media.images|first.cropZoom(750,422).html('','', 'thumb') }}
+      {% endif %}
+    </div>
 
+    <div class="entry-inner">
+<div class="entry-inner-content">
+
+      <header class="entry-header">
+        {% if page.header.link %}
+          <h1 class="entry-title">
+            {% if page.header.continue_link is not sameas(false) %}
+              <a href="{{ page.url }}"><i class="fa fa-angle-double-right"></i></a>
+            {% endif %}
+              <a href="{{ page.header.link }}">{{ page.title }}</a>
+          </h1>
+        {% else %}
+          <h1 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+        {% endif %}
+      </header>
+
+      {% if not truncate %}
         <div class="meta">
           <div><i class="fa fa-clock-o"></i> {{ page.date|date(config.system.pages.dateformat.long) }}</div>
           <div><i class="fa fa-user"></i> <span style="color:#E74C3C">
@@ -41,56 +58,10 @@
           </div>
           {% endif %}
         </div>
-      {% else %}
-      <div class="meta1">
-        <p>
-          <small>
-            <span><i class="fa fa-clock-o"></i> {{ page.date|date(config.system.pages.dateformat.long) }}</span>
-            <span><i class="fa fa-user"></i>
-              {% if page.header.author.name or site.author.name %}
-              {% if page.header.author.name %}
-              {% if page.header.author.url %}
-              <a href="{{ page.header.author.url }}">{{ page.header.author.name }}</a>
-              {% else %}
-              {{ page.header.author.name }}
-              {% endif %}
-              {% else %}
-              {% if site.author.url %}
-              <a href="{{ site.author.url }}">{{ site.author.name }}</a>
-              {% else %}
-              {{ site.author.name }}
-              {% endif %}
-              {% endif %}
-              {% endif %}
-            </span>
-            {% if page.taxonomy.tag %}
-            <span> <i class="fa fa-tags"></i>
-              {% for tag in page.taxonomy.tag %}
-              <a href="{{ base_url }}/tag:{{ tag }}" rel="tag">{{ tag }}{% if not loop.last %}, {% endif %}</a>
-              {% endfor %}
-            </span>
-            {% endif %}
-          </small>
-        </p>
-      </div>
       {% endif %}
-
       <div class="clear"></div>
 
-      <div class="{% if truncate %}entry-{% if page.header.youtube or page.header.soundcloud or page.header.vimeo %}video{% else %}image{% endif %}{% else %} resp_video{% endif %}">
-        {% if page.header.youtube %}
-        <iframe src="{{ page.header.youtube }}?showinfo=0" frameborder="0" allowfullscreen style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
-        {% endif %}
-        {% if page.header.vimeo %}
-        <iframe src="{{ page.header.vimeo }}" frameborder="0" allowfullscreen="" data-aspectratio="0.5619047619047619" style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
-        {% endif %}
-        {% if page.header.soundcloud %}
-        <iframe width="100%" height="403" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ page.header.soundcloud }}&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true&amp;buying=false"></iframe>
-        {% endif %}
-        {% if page.media.images|first %}
-          {{ page.media.images|first.cropZoom(750,422).html('','', 'thumb') }}
-        {% endif %}
-      </div>
+
 
             {% if page.header.continue_link is sameas(false) %}
             {{ page.content }}
@@ -140,9 +111,9 @@
 
               {% if page.header.continue_link is not sameas(false) %}
                 {% if truncate and page.summary != page.content %}
-                  <div class="pull-left"><a href="{{ page.url }}" class="read-more">Continue Reading</a></div>
+                  <div class="link-more"><a href="{{ page.url }}" class="read-more">Continue Reading</a></div>
                 {% elseif truncate %}
-                  <div class="pull-left"><a href="{{ page.url }}" class="read-more">Continue Reading</a></div>
+                  <div class="link-more"><a href="{{ page.url }}" class="read-more">Continue Reading</a></div>
                 {% endif %}
               {% endif %}
               <div class="clear"></div>
@@ -247,7 +218,7 @@
       {% endif %}
     </div>
   </div>
-</div>
+</article>
 
 {% if show_prev_next %}
 <div class="blog-pager" id="blog-pager">

@@ -15,19 +15,17 @@
     {% block content %}
 
     {{ page.content }}
-        {% include 'partials/blog_sidebar_header.html.twig' %}
 
-        {% for child in collection %}
-        {% include 'partials/blog_item.html.twig' with {'page':child, 'truncate':true} %}
-        {% endfor %}
+        <div id="posts" class="posts posts-list clearfix">
+          {% for child in collection %}
+            {% include 'partials/blog_item.html.twig' with {'page':child, 'truncate':true} %}
+          {% endfor %}
+        </div>
 
         {% if config.plugins.pagination.enabled and collection.params.pagination %}
         {% include 'pagination.html.twig' with {'pagination':collection.params.pagination} %}
         {% endif %}
 
-        {% include 'partials/blog_sidebar_footer.html.twig' %}
     {% endblock %}
 
 {% endembed %}
-
-
