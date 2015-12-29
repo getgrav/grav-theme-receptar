@@ -61,7 +61,7 @@
       {% endif %}
       <div class="clear"></div>
 
-
+      <div class="entry-content">
 
             {% if page.header.continue_link is sameas(false) %}
             {{ page.content }}
@@ -77,47 +77,14 @@
             {% set show_prev_next = true %}
             {% endif %}
 
-            <div class="entry-meta clearfix">
-              <div class="up_arrow"></div>
-              <div class="pull-right share-story-container">
-                <ul class="share-story">
-                  <li>
-                    <a href="http://www.facebook.com/share.php?u={{ page.url(true) }}" target="_blank">
-                      <i class="fa fa-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://twitter.com/home?status={{ page.title|replace({' ': "%20"}) }}-{{ page.url(true) }}" target="_blank">
-                      <i class="fa fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://digg.com/submit?url={{ page.url(true) }}&amp;title={{ page.title|replace({' ': "%20"}) }}" target="_blank">
-                      <i class="fa fa-digg"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://reddit.com/submit?url={{ page.url(true) }}&amp;title={{ page.title|replace({' ': "%20"}) }}" target="_blank">
-                      <i class="fa fa-reddit"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ page.url(true) }}&amp;title={{ page.title|replace({' ': "%20"}) }}" target="_blank">
-                      <i class="fa fa-linkedin"></i>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-              {% if page.header.continue_link is not sameas(false) %}
-                {% if truncate and page.summary != page.content %}
-                  <div class="link-more"><a href="{{ page.url }}" class="read-more">Continue Reading</a></div>
-                {% elseif truncate %}
-                  <div class="link-more"><a href="{{ page.url }}" class="read-more">Continue Reading</a></div>
-                {% endif %}
+            {% if page.header.continue_link is not sameas(false) %}
+              {% if truncate and page.summary != page.content %}
+                <div class="link-more"><a href="{{ page.url }}">Continue Reading</a></div>
+              {% elseif truncate %}
+                <div class="link-more"><a href="{{ page.url }}">Continue Reading</a></div>
               {% endif %}
-              <div class="clear"></div>
-            </div>
+            {% endif %}
+          </div>
 
             {% if not truncate %}
             <div class="author-meta box">
