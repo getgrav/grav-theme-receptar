@@ -1,14 +1,10 @@
 {% set taxlist = taxonomylist.get() %}
 
 {% if taxlist %}
-<div class="widget-content list-label-widget-content">
-  <ul>
-    {% for tax,value in taxlist[taxonomy]|slice(0, 5) %}
-    <li>
+<div class="tagcloud">
+    {% for tax,value in taxlist[taxonomy] %}
       {% set active = uri.param(taxonomy) == tax ? 'active' : '' %}
-      <a class="{{ active }}" href="{{ base_url_absolute }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax|e('url') }}">{{ tax }}</a>
-    </li>
+      <a class="{{ active }}" title="{{ value }} topics" href="{{ base_url_absolute }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax|e('url') }}">{{ tax }}</a>
     {% endfor %}
-  </ul>
 </div>
 {% endif %}

@@ -1,0 +1,48 @@
+{% for module in page.collection({'items':{'@taxonomy.category': 'sidebar'},'order': {'by': 'default', 'dir': 'asc'}}) %}
+{% if module.template %}
+{% if module.header.surround %}
+{% include 'sidebar/' ~ module.template ~ '.html.twig' %}
+{% endif %}
+{% endif %}
+{% endfor %}
+
+{% for module in page.collection({'items':{'@taxonomy.category': 'sidebar'},'order': {'by': 'default', 'dir': 'asc'}}) %}
+{% if module.template %}
+{% if not module.header.surround %}
+{% include 'sidebar/' ~ module.template ~ '.html.twig' %}
+{% endif %}
+{% endif %}
+{% endfor %}
+
+{% if config.plugins.simplesearch.enabled %}
+<aside class="widget HTML">
+  <h2 class="widget-title">SimpleSearch</h2>
+    {% include 'partials/simplesearch_searchbox.html.twig' %}
+</aside>
+{% endif %}
+{% if config.plugins.random.enabled %}
+<aside class="widget HTML">
+  <h2 class="widget-title">Random Article</h2>
+    <a class="button" href="{{ base_url_relative }}/random"><i class="fa fa-retweet"></i> I'm Feeling Lucky!</a>
+</aside>
+{% endif %}
+{% if config.plugins.taxonomylist.enabled %}
+<aside class="widget widget_tag_cloud">
+  <h2 class="widget-title">Popular Tags</h2>
+    {% include 'partials/taxonomylist.html.twig' with {'base_url':new_base_url, 'taxonomy':'tag'} %}
+</aside>
+{% endif %}
+
+{% if config.plugins.archives.enabled %}
+<aside class="widget widget_recent_entries">
+  <h2 class="widget-title">Archives</h2>
+    {% include 'partials/archives.html.twig' %}
+</aside>
+{% endif %}
+{% if config.plugins.feed.enabled %}
+<aside class="widget HTML syndicate">
+  <h2 class="widget-title">Syndicate</h2>
+    <a class="button" href="{{ feed_url }}.atom"><i class="fa fa-rss-square"></i> Atom 1.0</a>
+    <a class="button" href="{{ feed_url }}.rss"><i class="fa fa-rss-square"></i> RSS</a>
+</aside>
+{% endif %}
