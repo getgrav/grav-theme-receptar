@@ -12,54 +12,51 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto+Slab%3A400%2C700&ver=4.2.2' id='roboto-slab-css' media='all' rel='stylesheet' type='text/css'/>
   <meta name="google-translate-customization" content="{{ site.google_translate_token }}">
   {% block stylesheets %}
-  {% do assets.addCss('theme://css/slick.css') %}
-  {% do assets.addCss('theme://genericons/genericons.css') %}
-  {% do assets.addCss('theme://css/starter.css') %}
-  {% do assets.addCss('theme://css/style.css') %}
-  {% do assets.addCss('theme://css/colors.css') %}
-  {% do assets.addCss('theme://css/lightbox.css') %}
-  {% if browser.getBrowser == 'msie' and browser.getVersion >= 7 and browser.getVersion <= 8 %}
-  {% do assets.addCss('theme://css/ie.css') %}
-  {% endif %}
+    {% do assets.addCss('theme://css/slick.css') %}
+    {% do assets.addCss('theme://genericons/genericons.css') %}
+    {% do assets.addCss('theme://css/starter.css') %}
+    {% do assets.addCss('theme://css/style.css') %}
+    {% do assets.addCss('theme://css/colors.css') %}
+    {% do assets.addCss('theme://css/lightbox.css') %}
+    {% if browser.getBrowser == 'msie' and browser.getVersion >= 7 and browser.getVersion <= 8 %}
+    {% do assets.addCss('theme://css/ie.css') %}
+    {% endif %}
   {% endblock %}
   {{ assets.css() }}
 
   {% block javascripts %}
-  {% do assets.add('jquery',101) %}
-  {% do assets.add('theme://js/scripts-global.js') %}
+    {% do assets.add('jquery',101) %}
+    {% do assets.add('theme://js/slick.min.js') %}
+    {% do assets.add('theme://js/scripts-global.js') %}
+
   {% endblock %}
   {{ assets.js() }}
 
-  <script>
-  $(document).ready(function(){
-    $(".widget h2").wrapInner("<span></span>");
-  });
-  </script>
-
-  {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
-  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  {% endif %}
 
   {% endblock head %}
 </head>
 <body id="top" class="blog fl-builder has-featured-posts home is-not-singular not-scrolled">
   <div id="page" class="hfeed site">
-    {% block header %}
-    {% include 'partials/header.html.twig' %}
-    {% endblock %}
-    <div class="clear"></div>
-    {% block body %}
-    <div class='site-content' id="content">
-      <div class="content-area" id="primary">
-        {% block content %}{% endblock %}
+    <div class="site-inner">
+      {% block header %}
+        {% include 'partials/header.html.twig' %}
+      {% endblock %}
+      {% block slider %}
+        {% include 'partials/slider.html.twig' %}
+      {% endblock %}
+      {% block body %}
+      <div class='site-content' id="content">
+        <div class="content-area" id="primary">
+          {% block content %}{% endblock %}
+        </div>
       </div>
-    </div>
-    {% endblock %}
+      {% endblock %}
 
-    {% block footer %}
-    {% include 'partials/footer.html.twig' %}
-    {% endblock %}
+      {% block footer %}
+        {% include 'partials/footer.html.twig' %}
+      {% endblock %}
   </div>
+</div>
 
 </body>
 </html>
