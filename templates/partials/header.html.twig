@@ -47,14 +47,26 @@
       <span class="screen-reader-text">Menu</span>
       </button>
       <div class="social-links">
-         <ul id="menu-social-links" class="social-links-items">
-            <li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8"><a href="https://www.facebook.com/webmandesigneu"><span class="screen-reader-text">WebMan on Facebook</span></a></li>
-            <li id="menu-item-9" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9"><a href="https://twitter.com/webmandesigneu"><span class="screen-reader-text">WebMan on Twitter</span></a></li>
-            <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="https://profiles.wordpress.org/webmandesign/"><span class="screen-reader-text">WebMan on WordPress</span></a></li>
-            <li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="http://vimeo.com/webmandesigneu/"><span class="screen-reader-text">WebMan on Vimeo</span></a></li>
-            <li id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19"><a href="http://www.webmandesign.eu"><span class="screen-reader-text">WebMan Design</span></a></li>
-            <li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="/auberge/feed/"><span class="screen-reader-text">RSS feed</span></a></li>
-         </ul>
+        <ul id="menu-social-links" class="social-links-items">
+          {% for icon in site.social %}
+            <li id="menu-item-{{ loop.index }}" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-{{ loop.index }}">
+              <a href="{{ icon.url }}">
+                <span class="screen-reader-text">{{ icon.text }}</span>
+              </a>
+            </li>
+          {% endfor %}
+
+          {% if config.plugins.feed.enabled %}
+            <li id="menu-item-1245" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1245">
+              <a href="{{ feed_url }}.atom"><span class="screen-reader-text">Atom 1.0</span></a>
+            </li>
+            <li id="menu-item-1246" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1246">
+              <a href="{{ feed_url }}.rss"><span class="screen-reader-text">RSS</span></a>
+            </li>
+          {% endif %}
+
+
+        </ul>
       </div>
    </div>
 </section>

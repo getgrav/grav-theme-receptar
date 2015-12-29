@@ -863,6 +863,8 @@
 						.social-links .email a:before                    { content: '\f410'; }
 
 						.social-links a[href*="/feed/"]:before,
+						.social-links a[href*=".atom"]:before,
+						.social-links a[href*=".rss"]:before,
 						.social-links .rss a:before                      { content: '\f413'; }
 
 
