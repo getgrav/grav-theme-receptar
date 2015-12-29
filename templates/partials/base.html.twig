@@ -1,66 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" class='{% if browser.getBrowser == 'msie' and browser.getVersion == 7 and browser.getVersion == 8 %}{% else %}v2{% endif %} {% if browser.getBrowser == 'msie' and browser.getVersion == 7 %}ie ie7 ltie8 ltie9{% endif %} {% if browser.getBrowser == 'msie' and browser.getVersion == 8 %}ie ie8 ltie9{% endif %}'>
 <head>
-    {% block head %}
-        <meta charset="utf-8" />
-        <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
-        {% include 'partials/metadata.html.twig' %}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png" />
-      <link rel='stylesheet' id='receptar-google-fonts-css' href='//fonts.googleapis.com/css?family=Roboto%7CRoboto+Condensed%3A400%2C300%7CAlegreya%3A400%2C700&#038;subset&#038;ver=44d4db587900ff753163772c910c3b34' type='text/css' media='all'/>
-        <link href='//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css' rel='stylesheet'/>
-        <link href='http://fonts.googleapis.com/css?family=Roboto+Slab%3A400%2C700&ver=4.2.2' id='roboto-slab-css' media='all' rel='stylesheet' type='text/css'/>
-        <meta name="google-translate-customization" content="{{ site.google_translate_token }}">
-        {% block stylesheets %}
-            {% do assets.addCss('theme://css/slick.css') %}
-            {% do assets.addCss('theme://genericons/genericons.css') %}
-            {% do assets.addCss('theme://css/starter.css') %}
-            {% do assets.addCss('theme://css/style.css') %}
-            {% do assets.addCss('theme://css/colors.css') %}
-            {% do assets.addCss('theme://css/lightbox.css') %}
-            {% if browser.getBrowser == 'msie' and browser.getVersion >= 7 and browser.getVersion <= 8 %}
-                {% do assets.addCss('theme://css/ie.css') %}
-            {% endif %}
-        {% endblock %}
-        {{ assets.css() }}
+  {% block head %}
+  <meta charset="utf-8" />
+  <title>{% if header.title %}{{ header.title }} | {% endif %}{{ site.title }}</title>
+  {% include 'partials/metadata.html.twig' %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="icon" type="image/png" href="{{ theme_url }}/images/favicon.png" />
+  <link rel='stylesheet' id='receptar-google-fonts-css' href='//fonts.googleapis.com/css?family=Roboto%7CRoboto+Condensed%3A400%2C300%7CAlegreya%3A400%2C700&#038;subset&#038;ver=44d4db587900ff753163772c910c3b34' type='text/css' media='all'/>
+  <link href='//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css' rel='stylesheet'/>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab%3A400%2C700&ver=4.2.2' id='roboto-slab-css' media='all' rel='stylesheet' type='text/css'/>
+  <meta name="google-translate-customization" content="{{ site.google_translate_token }}">
+  {% block stylesheets %}
+  {% do assets.addCss('theme://css/slick.css') %}
+  {% do assets.addCss('theme://genericons/genericons.css') %}
+  {% do assets.addCss('theme://css/starter.css') %}
+  {% do assets.addCss('theme://css/style.css') %}
+  {% do assets.addCss('theme://css/colors.css') %}
+  {% do assets.addCss('theme://css/lightbox.css') %}
+  {% if browser.getBrowser == 'msie' and browser.getVersion >= 7 and browser.getVersion <= 8 %}
+  {% do assets.addCss('theme://css/ie.css') %}
+  {% endif %}
+  {% endblock %}
+  {{ assets.css() }}
 
-        {% block javascripts %}
-            {% do assets.add('jquery',101) %}
-            {% do assets.add('theme://js/scripts.js') %}
-            {% do assets.add('theme://js/video.js') %}
-        {% endblock %}
-        {{ assets.js() }}
+  {% block javascripts %}
+  {% do assets.add('jquery',101) %}
+  {% do assets.add('theme://js/scripts-global.js') %}
+  {% endblock %}
+  {{ assets.js() }}
 
-        <script>
-        $(document).ready(function(){
-          $(".widget h2").wrapInner("<span></span>");
-        });
-        </script>
+  <script>
+  $(document).ready(function(){
+    $(".widget h2").wrapInner("<span></span>");
+  });
+  </script>
 
-        {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
-            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        {% endif %}
+  {% if browser.getBrowser == 'msie' and browser.getVersion >= 8 and browser.getVersion <= 9 %}
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  {% endif %}
 
-    {% endblock head %}
+  {% endblock head %}
 </head>
 <body id="top" class="blog fl-builder has-featured-posts home is-not-singular not-scrolled">
-   <div id="page" class="hfeed site">
+  <div id="page" class="hfeed site">
     {% block header %}
-      {% include 'partials/header.html.twig' %}
+    {% include 'partials/header.html.twig' %}
     {% endblock %}
     <div class="clear"></div>
     {% block body %}
     <div class='site-content' id="content">
       <div class="content-area" id="primary">
-      {% block content %}{% endblock %}
-    </div>
+        {% block content %}{% endblock %}
+      </div>
     </div>
     {% endblock %}
 
     {% block footer %}
-      {% include 'partials/footer.html.twig' %}
+    {% include 'partials/footer.html.twig' %}
     {% endblock %}
   </div>
 
-    </body>
-    </html>
+</body>
+</html>

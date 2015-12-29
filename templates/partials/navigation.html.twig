@@ -1,12 +1,10 @@
 {% macro loop(page) %}
     {% for p in page.children.visible %}
-        {% set current_page = (p.active or p.activeChild) ? 'active' : '' %}
+        {% set current_page = (p.active or p.activeChild) ? 'current-menu-item current_page_item' : '' %}
         <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-{{ loop.index }} {{ current_page }}">
             <a href="{{ p.url }}">
-                <span class="menu-item-description">
                 {% if p.header.icon %}<i class="fa fa-{{ p.header.icon }}"></i>{% endif %}
                 {{ p.menu }}
-              </span>
             </a>
             {% if p.children.visible.count > 0 %}
                 <ul>
@@ -22,10 +20,10 @@
         {{ _self.loop(pages) }}
     {% else %}
         {% for page in pages.children.visible %}
-            {% set current_page = (page.active or page.activeChild) ? 'current' : '' %}
+            {% set current_page = (page.active or page.activeChild) ? 'current-menu-item current_page_item' : '' %}
             <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-{{ loop.index }} {{ current_page }}">
                 <a href="{{ page.url }}">
-                    <span class="menu-item-description">{{ page.menu }}</span>
+                    {{ page.menu }}
                 </a>
             </li>
         {% endfor %}
@@ -33,7 +31,7 @@
     {% for mitem in site.menu %}
         <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-{{ loop.index }}">
             <a href="{{ mitem.url }}">
-                <span class="menu-item-description">{{ mitem.text }}</span>
+              {{ mitem.text }}
             </a>
         </li>
     {% endfor %}
