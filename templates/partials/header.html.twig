@@ -1,26 +1,115 @@
-<div id="masthead" role="banner" class="affix-top">
-  <div class="container">
-    <div class="navbar navbar-inverse">
-      <div class="navbar-inner">
-        <div class="btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button"><img src="{{ theme_url }}/images/bmenu.png"></div>
-        <div class="header section" id="header"><div class="widget Header" id="Header1">
-          <div id="header-inner">
-            {% if site.title  %}
-              <div class="titlewrapper">
-                <h1 class="title">
-                  <a href='{{ base_url_absolute }}' style='display: block'>{{ site.title }}</a>
-                </h1>
-              </div>
-            {% endif %}
-          </div>
-        </div></div>
-        <div class="nav-collapse collapse">
-          {% block navigation %}
-              {% include 'partials/navigation.html.twig' %}
-          {% endblock %}
-        </div>
-      </div>
-    </div>
+<header id="masthead" class="site-header">
+  <div class="site-branding">
+    {% if site.title  %}
+    <h1 class="site-title logo type-text">
+      <a href='{{ base_url_absolute }}'>{{ site.title }}</a>
+    </h1>
+    {% endif %}
+    {% if site.description  %}
+    <h2 class="site-description">{{ site.description }}</h2>
+    {% endif %}
   </div>
-  <div class="clear"></div>
-</div>
+
+  <section id="secondary" class="secondary">
+   <div class="secondary-content">
+      <div class="secondary-content-container">
+        <div class="site-branding">
+          {% if site.title  %}
+          <h1 class="site-title logo type-text">
+            <a href='{{ base_url_absolute }}'>{{ site.title }}</a>
+          </h1>
+          {% endif %}
+          {% if site.description  %}
+          <h2 class="site-description">{{ site.description }}</h2>
+          {% endif %}
+        </div>
+         <nav id="site-navigation" class="main-navigation" role="navigation" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+            <span class="screen-reader-text">Receptar site navigation</span>
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <div class="menu">
+              {% block navigation %}
+                {% include 'partials/navigation.html.twig' %}
+              {% endblock %}
+            </div>
+         </nav>
+         <div class="widget-area sidebar" role="complementary" itemscope="" itemtype="http://schema.org/WPSideBar">
+            <aside id="search-2" class="widget widget_search">
+               <h2 class="widget-title">Search the blog</h2>
+               <form method="get" class="form-search" action="http://themedemos.webmandesign.eu/receptar/">
+                  <label for="search-field" class="screen-reader-text">Search</label>
+                  <input type="search" value="" placeholder="Type and press enter" name="s" class="search-field" data-id="search-field">
+               </form>
+            </aside>
+            <aside id="text-2" class="widget widget_text">
+               <h2 class="widget-title">About</h2>
+               <div class="textwidget">
+                  <p><strong>Receptar</strong> is simple, modern, responsive, high-DPI, fully customizable blog WordPress theme. It features split-screen book-like design inspired by a modern cook book with emphasize on beautiful imagery and typography.</p>
+                  <p>Supports Beaver Builder page builder and Jetpack plugin, Schema.org markup, Theme Hook Alliance action hooks, translation-ready code, front page slideshow, customizable colors, and other cool features.</p>
+                  <p>More info at <a href="http://www.webmandesign.eu">WebMan Design</a>.</p>
+               </div>
+            </aside>
+            <aside id="recent-comments-2" class="widget widget_recent_comments">
+               <h2 class="widget-title">Recent Comments</h2>
+               <ul id="recentcomments">
+                  <li class="recentcomments"><span class="comment-author-link">John Johnson</span> on <a href="http://themedemos.webmandesign.eu/receptar/gallery/comment-page-1/#comment-8">Gallery post</a></li>
+                  <li class="recentcomments"><span class="comment-author-link"><a href="http://www.webmandesign.eu" rel="external nofollow" class="url">WebMan</a></span> on <a href="http://themedemos.webmandesign.eu/receptar/gallery/comment-page-1/#comment-7">Gallery post</a></li>
+                  <li class="recentcomments"><span class="comment-author-link">John Johnson</span> on <a href="http://themedemos.webmandesign.eu/receptar/gallery/comment-page-1/#comment-6">Gallery post</a></li>
+                  <li class="recentcomments"><span class="comment-author-link"><a href="http://www.webmandesign.eu" rel="external nofollow" class="url">WebMan</a></span> on <a href="http://themedemos.webmandesign.eu/receptar/gallery/comment-page-1/#comment-5">Gallery post</a></li>
+                  <li class="recentcomments"><span class="comment-author-link"><a href="http://www.webmandesign.eu" rel="external nofollow" class="url">WebMan</a></span> on <a href="http://themedemos.webmandesign.eu/receptar/gallery/comment-page-1/#comment-4">Gallery post</a></li>
+               </ul>
+            </aside>
+            <aside id="recent-posts-2" class="widget widget_recent_entries">
+               <h2 class="widget-title">Recent Posts</h2>
+               <ul>
+                  <li>
+                     <a href="http://themedemos.webmandesign.eu/receptar/beaver-builder-post/">Beaver Builder post</a>
+                  </li>
+                  <li>
+                     <a href="http://themedemos.webmandesign.eu/receptar/a-very-delicious-blog/">A very delicious blog</a>
+                  </li>
+                  <li>
+                     <a href="http://themedemos.webmandesign.eu/receptar/another-beaver-builder-post/">Another Beaver Builder post</a>
+                  </li>
+                  <li>
+                     <a href="http://themedemos.webmandesign.eu/receptar/typi-non-habent-claritatem/">Typi non habent claritatem</a>
+                  </li>
+                  <li>
+                     <a href="http://themedemos.webmandesign.eu/receptar/duis-autem/">Duis autem</a>
+                  </li>
+               </ul>
+            </aside>
+            <aside id="tag_cloud-2" class="widget widget_tag_cloud">
+               <h2 class="widget-title">Tags</h2>
+               <div class="tagcloud"><a href="http://themedemos.webmandesign.eu/receptar/tag/excerpt/" class="tag-link-19" title="3 topics" style="font-size: 14.461538461538pt;">Excerpt</a>
+                  <a href="http://themedemos.webmandesign.eu/receptar/tag/html/" class="tag-link-23" title="1 topic" style="font-size: 8pt;">HTML</a>
+                  <a href="http://themedemos.webmandesign.eu/receptar/tag/no-excerpt/" class="tag-link-25" title="8 topics" style="font-size: 22pt;">No excerpt</a>
+                  <a href="http://themedemos.webmandesign.eu/receptar/tag/paginated/" class="tag-link-26" title="1 topic" style="font-size: 8pt;">Paginated</a>
+                  <a href="http://themedemos.webmandesign.eu/receptar/tag/parted/" class="tag-link-27" title="1 topic" style="font-size: 8pt;">Parted</a>
+                  <a href="http://themedemos.webmandesign.eu/receptar/tag/styles/" class="tag-link-30" title="1 topic" style="font-size: 8pt;">Styles</a>
+                  <a href="http://themedemos.webmandesign.eu/receptar/tag/typography/" class="tag-link-31" title="1 topic" style="font-size: 8pt;">Typography</a>
+               </div>
+            </aside>
+         </div>
+      </div>
+   </div>
+   <div class="secondary-controls">
+      <button id="menu-toggle" class="menu-toggle" aria-controls="secondary" aria-expanded="false">
+      <span class="hamburger-item"></span>
+      <span class="hamburger-item"></span>
+      <span class="hamburger-item"></span>
+      <span class="screen-reader-text">Menu</span>
+      </button>
+      <div class="social-links">
+         <ul id="menu-social-links" class="social-links-items">
+            <li id="menu-item-8" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-8"><a href="https://www.facebook.com/webmandesigneu"><span class="screen-reader-text">WebMan on Facebook</span></a></li>
+            <li id="menu-item-9" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9"><a href="https://twitter.com/webmandesigneu"><span class="screen-reader-text">WebMan on Twitter</span></a></li>
+            <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="https://profiles.wordpress.org/webmandesign/"><span class="screen-reader-text">WebMan on WordPress</span></a></li>
+            <li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="http://vimeo.com/webmandesigneu/"><span class="screen-reader-text">WebMan on Vimeo</span></a></li>
+            <li id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-19"><a href="http://www.webmandesign.eu"><span class="screen-reader-text">WebMan Design</span></a></li>
+            <li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="/auberge/feed/"><span class="screen-reader-text">RSS feed</span></a></li>
+         </ul>
+      </div>
+   </div>
+</section>
+
+</header>
