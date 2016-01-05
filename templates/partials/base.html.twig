@@ -35,7 +35,7 @@
 
   {% endblock head %}
 </head>
-<body id="top" class="blog fl-builder has-featured-posts home is-not-singular not-scrolled {{ page.header.body_classes }}">
+<body id="top" class="fl-builder {% if singular %}is-singular not-front-page single single-format-standard single-post{% else %}blog has-featured-posts is-not-singular{% endif %} not-scrolled {{ page.header.body_classes }}">
   <div id="page" class="hfeed site">
     <div class="site-inner">
       {% block header %}

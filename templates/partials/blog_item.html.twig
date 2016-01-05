@@ -1,22 +1,24 @@
 <article id="post-{{ loop.index }}" class="post-{{ loop.index }} post type-post status-publish format-standard has-post-thumbnail hentry category-cakes tag-no-excerpt">
 
     <div class="entry-media {% if truncate %}entry-{% if page.header.youtube or page.header.soundcloud or page.header.vimeo %}video{% else %}image{% endif %}{% else %} resp_video{% endif %}">
-      {% if page.header.youtube %}
-      <iframe src="{{ page.header.youtube }}?showinfo=0" frameborder="0" allowfullscreen style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
-      {% endif %}
-      {% if page.header.vimeo %}
-      <iframe src="{{ page.header.vimeo }}" frameborder="0" allowfullscreen="" data-aspectratio="0.5619047619047619" style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
-      {% endif %}
-      {% if page.header.soundcloud %}
-      <iframe width="100%" height="403" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ page.header.soundcloud }}&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true&amp;buying=false"></iframe>
-      {% endif %}
-      {% if page.media.images|first %}
-        {{ page.media.images|first.cropZoom(338,451).html('','', 'thumb') }}
-      {% endif %}
+      <figure class="post-thumbnail">
+        {% if page.header.youtube %}
+        <iframe src="{{ page.header.youtube }}?showinfo=0" frameborder="0" allowfullscreen style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
+        {% endif %}
+        {% if page.header.vimeo %}
+        <iframe src="{{ page.header.vimeo }}" frameborder="0" allowfullscreen="" data-aspectratio="0.5619047619047619" style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
+        {% endif %}
+        {% if page.header.soundcloud %}
+        <iframe width="100%" height="403" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ page.header.soundcloud }}&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true&amp;buying=false"></iframe>
+        {% endif %}
+        {% if page.media.images|first %}
+          {{ page.media.images|first.cropZoom(338,451).html('','', 'thumb') }}
+        {% endif %}
+      </figure>
     </div>
 
     <div class="entry-inner">
-<div class="entry-inner-content">
+<div class="entry-inner{% if truncate %}-content{% endif %}">
 
       <header class="entry-header">
         {% if page.header.link %}
@@ -32,9 +34,10 @@
       </header>
 
       {% if not truncate %}
-        <div class="meta">
-          <div><i class="fa fa-clock-o"></i> {{ page.date|date(config.system.pages.dateformat.long) }}</div>
-          <div><i class="fa fa-user"></i> <span style="color:#E74C3C">
+        <div class="entry-meta entry-meta-bottom">
+          <time datetime="{{ page.date|date(config.system.pages.dateformat.long) }}" class="entry-date entry-meta-element published" title="{{ page.date|date(config.system.pages.dateformat.long) }}" itemprop="datePublished">{{ page.date|date(config.system.pages.dateformat.long) }}</time>
+
+          <span class="author vcard entry-meta-element">
             {% if page.header.author.name or site.author.name %}
             {% if page.header.author.name %}
             {% if page.header.author.url %}
@@ -50,13 +53,13 @@
             {% endif %}
             {% endif %}
             {% endif %}
-          </span></div>
+          </span>
           {% if page.taxonomy.tag %}
-          <div> <i class="fa fa-tags"></i>
+          <span class="tags-links entry-meta-element">
             {% for tag in page.taxonomy.tag %}
             <a href="{{ base_url }}/tag:{{ tag }}" rel="tag">{{ tag }}{% if not loop.last %}, {% endif %}</a>
             {% endfor %}
-          </div>
+          </span>
           {% endif %}
         </div>
       {% endif %}

@@ -6,6 +6,8 @@
   {% set base_url = '' %}
 {% endif %}
 
+{% set singular = true %}
+
 {% if base_url == base_url_relative %}
   {% set feed_url = base_url~'/'~page.parent.slug %}
 {% endif  %}
