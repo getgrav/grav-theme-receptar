@@ -32,6 +32,9 @@
   {% endblock %}
   {{ assets.js() }}
 
+  {% if singular %}
+  <style id='receptar-stylesheet-inline-css' type='text/css'>.entry-media{background-image:url({{ page.media.images|first.url }})}</style>
+  {% endif %}
 
   {% endblock head %}
 </head>

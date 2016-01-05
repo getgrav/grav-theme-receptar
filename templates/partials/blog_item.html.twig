@@ -12,7 +12,7 @@
         <iframe width="100%" height="403" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ page.header.soundcloud }}&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true&amp;buying=false"></iframe>
         {% endif %}
         {% if page.media.images|first %}
-          {{ page.media.images|first.cropZoom(338,451).html('','', 'thumb') }}
+          {{ page.media.images|first.cropZoom(338,451).html('','', 'attachment-receptar-featured size-receptar-featured wp-post-image') }}
         {% endif %}
       </figure>
     </div>
@@ -154,17 +154,6 @@
               </div>
               <div style="clear:both"></div>
             </div>
-            <script type='text/javascript'>
-              $(document).ready(function() {
-                $("#owl-demo").owlCarousel({
-                  autoPlay: 3000,
-                  items : 3,
-                  itemsDesktop : [1200,3],
-                  itemsDesktopSmall : [980,2],
-                  itemsMobile : [480,1]
-                });
-              });
-              </script>
             {% endif %}
 
       {% if not truncate %}
