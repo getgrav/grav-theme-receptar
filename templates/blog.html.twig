@@ -1,5 +1,9 @@
 {% embed 'partials/base.html.twig' %}
 
+    {% block slider %}
+      {% include 'partials/slider.html.twig' %}
+    {% endblock %}
+
     {% set collection = page.collection() %}
     {% set base_url = page.url %}
     {% set feed_url = base_url %}

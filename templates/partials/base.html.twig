@@ -35,18 +35,16 @@
 
   {% endblock head %}
 </head>
-<body id="top" class="blog fl-builder has-featured-posts home is-not-singular not-scrolled">
+<body id="top" class="blog fl-builder has-featured-posts home is-not-singular not-scrolled {{ page.header.body_classes }}">
   <div id="page" class="hfeed site">
     <div class="site-inner">
       {% block header %}
         {% include 'partials/header.html.twig' %}
       {% endblock %}
-      {% block slider %}
-        {% include 'partials/slider.html.twig' %}
-      {% endblock %}
+      {% block slider %}{% endblock %}
       {% block body %}
-      <div class='site-content' id="content">
-        <div class="content-area" id="primary">
+      <div id="content" class="site-content">
+        <div id="primary" class="content-area">
           {% block content %}{% endblock %}
         </div>
       </div>
