@@ -1,13 +1,21 @@
-<ul id="recentcomments">
-    {% for related_path, score in related_pages %}
-        {% set related = grav['pages'].get(related_path) %}
-        {% if related %}
-            <li class="recentcomments">
-                {% if config.plugins.relatedpages.show_score %}
-                    <span class="score">{{ score }}</span>
-                {% endif %}
-                <a href="{{ related.url }}" title="{{ related.title }}">{{ related.title }}</a>
-            </li>
-        {% endif %}
-    {% endfor %}
-</ul>
+{% for related_path, score in related_pages %}
+{% set related = grav['pages'].get(related_path) %}
+{% if related %}
+<div class="jp-relatedposts-post jp-relatedposts-post{{ loop.index }} jp-relatedposts-post-thumbs" data-post-id="{{ loop.index }}" data-post-format="false">
+  <a class="jp-relatedposts-post-a" href="{{ related.url }}" title="{{ related.title }}" rel="nofollow">
+    {% if related.media.images|first %}
+    {{ related.media.images|first.forceResize(218,125).html('', '', 'jp-relatedposts-post-img') }}
+    {% endif %}
+  </a>
+  <h4 class="jp-relatedposts-post-title">
+    <a class="jp-relatedposts-post-a" href="{{ related.url }}" title="{{ related.title }}" rel="nofollow">
+      {{ related.title }}
+      {% if config.plugins.relatedpages.show_score %}
+      <span class="score">{{ score }}</span>
+      {% endif %}
+    </a>
+  </h4>
+  <p class="jp-relatedposts-post-context">In "Recipes"</p>
+</div>
+{% endif %}
+{% endfor %}

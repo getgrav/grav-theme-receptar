@@ -1,165 +1,111 @@
 <article id="post-{{ loop.index }}" class="post-{{ loop.index }} post type-post status-publish format-standard has-post-thumbnail hentry category-cakes tag-no-excerpt">
 
-    <div class="entry-media {% if truncate %}entry-{% if page.header.youtube or page.header.soundcloud or page.header.vimeo %}video{% else %}image{% endif %}{% else %} resp_video{% endif %}">
-      <figure class="post-thumbnail">
-        {% if page.header.youtube %}
-        <iframe src="{{ page.header.youtube }}?showinfo=0" frameborder="0" allowfullscreen style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
-        {% endif %}
-        {% if page.header.vimeo %}
-        <iframe src="{{ page.header.vimeo }}" frameborder="0" allowfullscreen="" data-aspectratio="0.5619047619047619" style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
-        {% endif %}
-        {% if page.header.soundcloud %}
-        <iframe width="100%" height="403" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ page.header.soundcloud }}&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true&amp;buying=false"></iframe>
-        {% endif %}
-        {% if page.media.images|first %}
-          {{ page.media.images|first.cropZoom(338,451).html('','', 'attachment-receptar-featured size-receptar-featured wp-post-image') }}
-        {% endif %}
-      </figure>
-    </div>
+  <div class="entry-media {% if truncate %}entry-{% if page.header.youtube or page.header.soundcloud or page.header.vimeo %}video{% else %}image{% endif %}{% else %} resp_video{% endif %}">
+    <figure class="post-thumbnail">
+      {% if page.header.youtube %}
+      <iframe src="{{ page.header.youtube }}?showinfo=0" frameborder="0" allowfullscreen style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
+      {% endif %}
+      {% if page.header.vimeo %}
+      <iframe src="{{ page.header.vimeo }}" frameborder="0" allowfullscreen="" data-aspectratio="0.5619047619047619" style="width: 750px; height: 421.429px; {% if not truncate %}width: 680px;height: 392px;{% endif %}"></iframe>
+      {% endif %}
+      {% if page.header.soundcloud %}
+      <iframe width="100%" height="403" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ page.header.soundcloud }}&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true&amp;buying=false"></iframe>
+      {% endif %}
+      {% if page.media.images|first %}
+      {{ page.media.images|first.cropZoom(338,451).html('','', 'attachment-receptar-featured size-receptar-featured wp-post-image') }}
+      {% endif %}
+    </figure>
+  </div>
 
-    <div class="entry-inner">
-<div class="entry-inner{% if truncate %}-content{% endif %}">
+  <div class="entry-inner">
+    <div class="entry-inner{% if truncate %}-content{% endif %}">
 
       <header class="entry-header">
         {% if page.header.link %}
-          <h1 class="entry-title">
-            {% if page.header.continue_link is not sameas(false) %}
-              <a href="{{ page.url }}"><i class="fa fa-angle-double-right"></i></a>
-            {% endif %}
-              <a href="{{ page.header.link }}">{{ page.title }}</a>
-          </h1>
+        <h1 class="entry-title">
+          {% if page.header.continue_link is not sameas(false) %}
+          <a href="{{ page.url }}"><i class="fa fa-angle-double-right"></i></a>
+          {% endif %}
+          <a href="{{ page.header.link }}">{{ page.title }}</a>
+        </h1>
         {% else %}
-          <h1 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+        <h1 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
         {% endif %}
       </header>
 
       {% if not truncate %}
-        <div class="entry-meta entry-meta-bottom">
-          <time datetime="{{ page.date|date(config.system.pages.dateformat.long) }}" class="entry-date entry-meta-element published" title="{{ page.date|date(config.system.pages.dateformat.long) }}" itemprop="datePublished">{{ page.date|date(config.system.pages.dateformat.long) }}</time>
+      <div class="entry-meta entry-meta-bottom">
+        <time datetime="{{ page.date|date(config.system.pages.dateformat.long) }}" class="entry-date entry-meta-element published" title="{{ page.date|date(config.system.pages.dateformat.long) }}" itemprop="datePublished">{{ page.date|date(config.system.pages.dateformat.long) }}</time>
 
-          <span class="author vcard entry-meta-element">
-            {% if page.header.author.name or site.author.name %}
-            {% if page.header.author.name %}
-            {% if page.header.author.url %}
-            <a href="{{ page.header.author.url }}">{{ page.header.author.name }}</a>
-            {% else %}
-            {{ page.header.author.name }}
-            {% endif %}
-            {% else %}
-            {% if site.author.url %}
-            <a href="{{ site.author.url }}">{{ site.author.name }}</a>
-            {% else %}
-            {{ site.author.name }}
-            {% endif %}
-            {% endif %}
-            {% endif %}
-          </span>
-          {% if page.taxonomy.tag %}
-          <span class="tags-links entry-meta-element">
-            {% for tag in page.taxonomy.tag %}
-            <a href="{{ base_url }}/tag:{{ tag }}" rel="tag">{{ tag }}{% if not loop.last %}, {% endif %}</a>
-            {% endfor %}
-          </span>
+        <span class="author vcard entry-meta-element">
+          {% if page.header.author.name or site.author.name %}
+          {% if page.header.author.name %}
+          {% if page.header.author.url %}
+          <a href="{{ page.header.author.url }}">{{ page.header.author.name }}</a>
+          {% else %}
+          {{ page.header.author.name }}
           {% endif %}
-        </div>
+          {% else %}
+          {% if site.author.url %}
+          <a href="{{ site.author.url }}">{{ site.author.name }}</a>
+          {% else %}
+          {{ site.author.name }}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+        </span>
+        {% if page.taxonomy.tag %}
+        <span class="tags-links entry-meta-element">
+          {% for tag in page.taxonomy.tag %}
+          <a href="{{ base_url }}/tag:{{ tag }}" rel="tag">{{ tag }}{% if not loop.last %}, {% endif %}</a>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
       {% endif %}
       <div class="clear"></div>
 
       <div class="entry-content">
 
-            {% if page.header.continue_link is sameas(false) %}
-            {{ page.content }}
-            {% if not truncate %}
-            {% set show_prev_next = true %}
-            {% endif %}
-            {% elseif truncate and page.summary != page.content %}
-            {{ page.summary }}
-            {% elseif truncate %}
-            {{ page.content|truncate(550) }}
-            {% else %}
-            {{ page.content }}
-            {% set show_prev_next = true %}
-            {% endif %}
+        {% if page.header.continue_link is sameas(false) %}
+        {{ page.content }}
+        {% if not truncate %}
+        {% set show_prev_next = true %}
+        {% endif %}
+        {% elseif truncate and page.summary != page.content %}
+        {{ page.summary }}
+        {% elseif truncate %}
+        {{ page.content|truncate(550) }}
+        {% else %}
+        {{ page.content }}
+        {% set show_prev_next = true %}
+        {% endif %}
 
-            {% if page.header.continue_link is not sameas(false) %}
-              {% if truncate and page.summary != page.content %}
-                <div class="link-more"><a href="{{ page.url }}">Continue Reading</a></div>
-              {% elseif truncate %}
-                <div class="link-more"><a href="{{ page.url }}">Continue Reading</a></div>
-              {% endif %}
-            {% endif %}
-          </div>
+        {% if page.header.continue_link is not sameas(false) %}
+        {% if truncate and page.summary != page.content %}
+        <div class="link-more"><a href="{{ page.url }}">Continue Reading</a></div>
+        {% elseif truncate %}
+        <div class="link-more"><a href="{{ page.url }}">Continue Reading</a></div>
+        {% endif %}
+        {% endif %}
+      </div>
 
-            {% if not truncate %}
-            <div class="author-meta box">
-              {% if page.header.author %}
-              {% if page.header.author.logo or page.header.author.gravatar %}
-              <div class="author-image">
-                {% if page.header.author.gravatar %}
-                  <img src="http://www.gravatar.com/avatar/{{ page.header.author.gravatar|md5 }}?s=90" class="avatar-author" alt="Gravatar"/>
-                {% elseif page.header.author.logo  %}
-                  <img src="{{ page.media.images[page.header.author.logo].url }}" class="avatar-author" />
-                {% endif %}
-              </div>
-              {% endif %}
-              <div class="author-body">
-                <h2 class="vcard author">
-                  {% if page.header.author.url %}
-                  <a href="{{ page.header.author.url }}" rel="author">{{ page.header.author.name }}</a>
-                  {% else %}
-                  {{ page.header.author.name }}
-                  {% endif %}
-                </h2>
-                <p>
-                  {{ page.header.author.description }}
-                </p>
-              </div>
-              {% else %}
-              {% if site.author.logo or site.author.gravatar %}
-              <div class="author-image">
-                {% if site.author.gravatar  %}
-                  <img src="http://www.gravatar.com/avatar/{{ site.author.gravatar|md5 }}?s=90" class="avatar-author" alt="Gravatar"/>
-                {% elseif site.author.logo  %}
-                  <img src="{{ theme_url }}/images/{{ site.author.logo }}" class="avatar-author" />
-                {% endif %}
-              </div>
-              {% endif %}
-              <div class="author-body">
-                <h2 class="vcard author">
-                  {% if site.author.url %}
-                  <a href="{{ site.author.url }}" rel="author">{{ site.author.name }}</a>
-                  {% else %}
-                  {{ site.author.name }}
-                  {% endif %}
-                </h2>
-                <p>
-                  {{ site.author.description }}
-                </p>
-              </div>
-              {% endif %}
-
-              <div class="clear"></div>
-            </div>
-            {% endif %}
-
-            {% if not truncate %}
-            <div class="related_posts">
-              <div id="related-posts">
-                <div class="title">
-                  <h4>Related Posts</h4>
-                </div>
-                <div class="carousel_related owl-carousel owl-theme" id="owl-demo">
-                  {% include 'partials/relatedpages.html.twig' %}
-                </div>
-              </div>
-              <div style="clear:both"></div>
-            </div>
-            {% endif %}
 
       {% if not truncate %}
-        {% if config.plugins.jscomments.enabled and config.plugins.jscomments.provider %}
-        <div class="comments" id="comments">
-          <h4>Comments:</h3>
+      <div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+        <h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+        <div class="jp-relatedposts-items jp-relatedposts-items-visual">
+          {% include 'partials/relatedpages.html.twig' %}
+        </div>
+      </div>
+      {% endif %}
+
+      <hr/>
+
+      {% if not truncate %}
+      {% if config.plugins.jscomments.enabled and config.plugins.jscomments.provider %}
+      <div class="comments" id="comments">
+        <h4>Comments:</h3>
           <div class="comments-content">
             {{ jscomments(config.plugins.jscomments.provider) }}
           </div>
@@ -169,30 +115,30 @@
         {% if config.plugins.comments.enabled %}
         <div class="comments" id="comments">
           <h4>{{ grav.twig.comments|length }} Comments:</h3>
-          <div class="comments-content">
-            {% include 'partials/comments.html.twig' with {'page': page} %}
+            <div class="comments-content">
+              {% include 'partials/comments.html.twig' with {'page': page} %}
+            </div>
           </div>
+          {% endif %}
+
+          {% endif %}
         </div>
-        {% endif %}
+      </div>
+    </article>
 
+    {% if show_prev_next %}
+    <div class="blog-pager" id="blog-pager">
+      {% if not page.isFirst %}
+      <span id="blog-pager-newer-link">
+        <a class="blog-pager-newer-link" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> Newer Post</a>
+      </span>
       {% endif %}
+
+      {% if not page.isLast %}
+      <span id="blog-pager-older-link">
+        <a class="blog-pager-older-link" href="{{ page.prevSibling.url }}">Older Post <i class="fa fa-chevron-right"></i></a>
+      </span>
+      {% endif %}
+      <a class="home-link" href="{{ base_url_absolute }}">Home</a>
     </div>
-  </div>
-</article>
-
-{% if show_prev_next %}
-<div class="blog-pager" id="blog-pager">
-  {% if not page.isFirst %}
-  <span id="blog-pager-newer-link">
-    <a class="blog-pager-newer-link" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> Newer Post</a>
-  </span>
   {% endif %}
-
-  {% if not page.isLast %}
-  <span id="blog-pager-older-link">
-    <a class="blog-pager-older-link" href="{{ page.prevSibling.url }}">Older Post <i class="fa fa-chevron-right"></i></a>
-  </span>
-  {% endif %}
-  <a class="home-link" href="{{ base_url_absolute }}">Home</a>
-</div>
-{% endif %}
