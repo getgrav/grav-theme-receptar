@@ -67,6 +67,33 @@
 
       <div class="entry-content">
 
+        {% if page.header.ingredients %}
+        <div class="fl-row fl-row-bg-none">
+          {% if page.header.ingredients_title %}
+          <div class="fl-rich-text">
+            <h2>{{ page.header.ingredients_title }}</h2>
+          </div>
+          {% endif %}
+          {% for row in page.header.ingredients|batch(2) %}
+            <div class="fl-col-group">
+              {% for item in row %}
+              <div class="fl-col fl-col-small" style="width: {% if row|count < 2 %}100{% else %}50{% endif %}%;">
+                <div class="fl-rich-text">
+                  <h3>{{ item.title }}</h3>
+                  <ul>
+                    {% for ingredient in item.list %}
+                    <li>{{ ingredient }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </div>
+              {% endfor %}
+              </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+
         {% if page.header.continue_link is sameas(false) %}
         {{ page.content }}
         {% if not truncate %}

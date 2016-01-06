@@ -2217,6 +2217,9 @@
 
 		} /* /(max-width: 680px) */
 
-
+    .fl-col {
+        float: left;
+        min-height: 1px;
+    }
 
 /* End of file */
