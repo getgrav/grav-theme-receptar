@@ -11,11 +11,11 @@
     <a class="jp-relatedposts-post-a" href="{{ related.url }}" title="{{ related.title }}" rel="nofollow">
       {{ related.title }}
       {% if config.plugins.relatedpages.show_score %}
-      <span class="score">{{ score }}</span>
+      <span class="score">({{ score }})</span>
       {% endif %}
     </a>
   </h4>
-  
+
 </div>
 {% endif %}
 {% endfor %}

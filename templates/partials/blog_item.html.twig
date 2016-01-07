@@ -67,6 +67,7 @@
 
       <div class="entry-content">
 
+        {% if not truncate %}
         {% if page.header.ingredients %}
         <div class="fl-row fl-row-bg-none">
           {% if page.header.ingredients_title %}
@@ -75,24 +76,25 @@
           </div>
           {% endif %}
           {% for row in page.header.ingredients|batch(2) %}
-            <div class="fl-col-group">
-              {% for item in row %}
-              <div class="fl-col fl-col-small" style="width: {% if row|count < 2 %}100{% else %}50{% endif %}%;">
-                <div class="fl-rich-text">
-                  <h3>{{ item.title }}</h3>
-                  <ul>
-                    {% for ingredient in item.list %}
-                    <li>{{ ingredient }}</li>
-                    {% endfor %}
-                  </ul>
-                </div>
+          <div class="fl-col-group">
+            {% for item in row %}
+            <div class="fl-col fl-col-small" style="width: {% if row|count < 2 %}100{% else %}50{% endif %}%;">
+              <div class="fl-rich-text">
+                <h3>{{ item.title }}</h3>
+                <ul>
+                  {% for ingredient in item.list %}
+                  <li>{{ ingredient }}</li>
+                  {% endfor %}
+                </ul>
               </div>
-              {% endfor %}
-              </div>
+            </div>
+            {% endfor %}
+          </div>
           {% endfor %}
         </div>
         {% endif %}
-          <div class="clear"></div>
+        {% endif %}
+        <div class="clear"></div>
 
         {% if page.header.continue_link is sameas(false) %}
         {{ page.content }}
@@ -115,8 +117,38 @@
         <div class="link-more"><a href="{{ page.url }}">Continue Reading</a></div>
         {% endif %}
         {% endif %}
-      </div>
 
+        {% if not truncate %}
+        <div class="sharedaddy sd-sharing-enabled">
+          <div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing">
+            <h3 class="sd-title">Share this:</h3>
+            <div class="sd-content">
+              <ul>
+                <li class="share-facebook">
+                  <a rel="nofollow" data-shared="sharing-facebook-368" class="share-facebook sd-button share-icon" href="https://www.facebook.com/sharer/sharer.php?u={{ page.url(true) }}" target="_blank" title="{{ page.header.title }}"><span>Facebook</span></a>
+                </li>
+                <li class="share-twitter">
+                  <a rel="nofollow" data-shared="sharing-twitter-368" class="share-twitter sd-button share-icon" href="http://twitter.com/home?status={{ page.title|replace({' ': "%20"}) }}-{{ page.url(true) }}" target="_blank" title="{{ page.header.title }}"><span>Twitter</span></a>
+                </li>
+                <li class="share-google-plus-1">
+                  <a rel="nofollow" data-shared="sharing-google-368" class="share-google-plus-1 sd-button share-icon" href="https://plus.google.com/share?url={{ page.url(true) }}" target="_blank" title="{{ page.header.title }}"><span>Google</span></a>
+                </li>
+                <li class="share-pinterest">
+                  <a rel="nofollow" data-shared="sharing-pinterest-368" class="share-pinterest sd-button share-icon" href="https://www.pinterest.com/pin/create/button/?url={{ page.url(true) }}" target="_blank" title="{{ page.header.title }}"><span>Pinterest</span></a>
+                </li>
+                <li class="share-end"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript">var windowOpen;jQuery(document).on('ready post-load',function(){jQuery('a.share-facebook').on('click',function(){if('undefined'!==typeof windowOpen){windowOpen.close();}
+        windowOpen=window.open(jQuery(this).attr('href'),'wpcomfacebook','menubar=1,resizable=1,width=600,height=400');return false;});});</script>
+        <script type="text/javascript">var windowOpen;jQuery(document).on('ready post-load',function(){jQuery('a.share-twitter').on('click',function(){if('undefined'!==typeof windowOpen){windowOpen.close();}
+        windowOpen=window.open(jQuery(this).attr('href'),'wpcomtwitter','menubar=1,resizable=1,width=600,height=350');return false;});});</script>
+        <script type="text/javascript">var windowOpen;jQuery(document).on('ready post-load',function(){jQuery('a.share-google-plus-1').on('click',function(){if('undefined'!==typeof windowOpen){windowOpen.close();}
+        windowOpen=window.open(jQuery(this).attr('href'),'wpcomgoogle-plus-1','menubar=1,resizable=1,width=480,height=550');return false;});});</script>
+        {% endif %}
+      </div>
 
       {% if not truncate %}
       <div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
@@ -125,47 +157,46 @@
           {% include 'partials/relatedpages.html.twig' %}
         </div>
       </div>
-      {% endif %}
-
       <hr/>
+      {% endif %}
 
       {% if not truncate %}
       {% if config.plugins.jscomments.enabled and config.plugins.jscomments.provider %}
       <div class="comments" id="comments">
-        <h4>Comments:</h3>
-          <div class="comments-content">
-            {{ jscomments(config.plugins.jscomments.provider) }}
-          </div>
-        </div>
-        {% endif %}
-
-        {% if config.plugins.comments.enabled %}
-        <div class="comments" id="comments">
-          <h4>{{ grav.twig.comments|length }} Comments:</h3>
-            <div class="comments-content">
-              {% include 'partials/comments.html.twig' with {'page': page} %}
-            </div>
-          </div>
-          {% endif %}
-
-          {% endif %}
+        <h4>Comments:</h4>
+        <div class="comments-content">
+          {{ jscomments(config.plugins.jscomments.provider) }}
         </div>
       </div>
-    </article>
-
-    {% if show_prev_next %}
-    <div class="blog-pager" id="blog-pager">
-      {% if not page.isFirst %}
-      <span id="blog-pager-newer-link">
-        <a class="blog-pager-newer-link" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> Newer Post</a>
-      </span>
       {% endif %}
 
-      {% if not page.isLast %}
-      <span id="blog-pager-older-link">
-        <a class="blog-pager-older-link" href="{{ page.prevSibling.url }}">Older Post <i class="fa fa-chevron-right"></i></a>
-      </span>
+      {% if config.plugins.comments.enabled %}
+      <div class="comments" id="comments">
+        <h4>{{ grav.twig.comments|length }} Comments:</h4>
+        <div class="comments-content">
+          {% include 'partials/comments.html.twig' with {'page': page} %}
+        </div>
+      </div>
       {% endif %}
-      <a class="home-link" href="{{ base_url_absolute }}">Home</a>
+
+      {% endif %}
     </div>
+  </div>
+</article>
+
+{% if show_prev_next %}
+<div class="blog-pager" id="blog-pager">
+  {% if not page.isFirst %}
+  <span id="blog-pager-newer-link">
+    <a class="blog-pager-newer-link" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> Newer Post</a>
+  </span>
   {% endif %}
+
+  {% if not page.isLast %}
+  <span id="blog-pager-older-link">
+    <a class="blog-pager-older-link" href="{{ page.prevSibling.url }}">Older Post <i class="fa fa-chevron-right"></i></a>
+  </span>
+  {% endif %}
+  <a class="home-link" href="{{ base_url_absolute }}">Home</a>
+</div>
+{% endif %}
