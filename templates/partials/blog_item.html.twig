@@ -36,7 +36,7 @@
           {% if page.taxonomy.category %}
           <span class="cat-links entry-meta-element">
             {% for category in page.taxonomy.category %}
-            <a href="{{ base_url }}/tag:{{ category }}" rel="category tag">{{ category }}{% if not loop.last %}, {% endif %}</a>
+            <a href="{{ base_url }}/category:{{ category }}" rel="category tag">{{ category }}{% if not loop.last %}, {% endif %}</a>
             {% endfor %}
           </span>
           {% endif %}

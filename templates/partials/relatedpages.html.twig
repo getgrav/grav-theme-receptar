@@ -16,6 +16,14 @@
     </a>
   </h4>
 
+  {% if related.taxonomy.category %}
+  <p class="jp-relatedposts-post-context">
+    {% for category in related.taxonomy.category %}
+    In "{{ category|capitalize }}{% if not loop.last %}, {% endif %}"
+    {% endfor %}
+  </p>
+  {% endif %}
+
 </div>
 {% endif %}
 {% endfor %}
