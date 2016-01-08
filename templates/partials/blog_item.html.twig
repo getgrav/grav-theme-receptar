@@ -31,6 +31,17 @@
         {% else %}
         <h1 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
         {% endif %}
+        {% if not truncate %}
+        <div class="entry-category">
+          {% if page.taxonomy.category %}
+          <span class="cat-links entry-meta-element">
+            {% for category in page.taxonomy.category %}
+            <a href="{{ base_url }}/tag:{{ category }}" rel="category tag">{{ category }}{% if not loop.last %}, {% endif %}</a>
+            {% endfor %}
+          </span>
+          {% endif %}
+        </div>
+        {% endif %}
       </header>
 
       {% if not truncate %}
@@ -68,6 +79,17 @@
       <div class="entry-content">
 
         {% if not truncate %}
+        {% if page.header.description %}
+        <div class="fl-module fl-module-rich-text text-center" style="margin-bottom: 6%;">
+          <p>
+            {% for item in page.header.description %}
+            {% if loop.last %}</br>{% endif %}
+            <strong>{{ item.option }}</strong> {{ item.value }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+        </div>
+        {% endif %}
+
         {% if page.header.ingredients %}
         <div class="fl-row fl-row-bg-none">
           {% if page.header.ingredients_title %}
@@ -97,17 +119,21 @@
         <div class="clear"></div>
 
         {% if page.header.continue_link is sameas(false) %}
-        {{ page.content }}
+          {{ page.content }}
         {% if not truncate %}
-        {% set show_prev_next = true %}
+          {% set show_prev_next = true %}
         {% endif %}
         {% elseif truncate and page.summary != page.content %}
-        {{ page.summary }}
+          {% if site.summary.striptags == true %}
+            {{ page.summary|striptags }}
+          {% else %}
+            {{ page.summary }}
+          {% endif %}
         {% elseif truncate %}
-        {{ page.content|truncate(550) }}
+          {{ page.content|truncate(550) }}
         {% else %}
-        {{ page.content }}
-        {% set show_prev_next = true %}
+          {{ page.content }}
+          {% set show_prev_next = true %}
         {% endif %}
 
         {% if page.header.continue_link is not sameas(false) %}
