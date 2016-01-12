@@ -2224,5 +2224,8 @@
     div.clear {
       clear: both;
     }
+    .fl-row-bg-color .fl-row-content-wrap {
+    background-color: rgba(42,44,46, 1);
+    }
 
 /* End of file */
