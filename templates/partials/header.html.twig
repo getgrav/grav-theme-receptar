@@ -46,6 +46,34 @@
       <span class="hamburger-item"></span>
       <span class="screen-reader-text">Menu</span>
       </button>
+
+
+      <nav class="navigation post-navigation links-count-2" role="navigation">
+        <h1 class="screen-reader-text">Post navigation</h1>
+        <div class="nav-links">
+          {% if not page.isFirst %}
+          <div class="nav-next nav-link has-post-thumbnail">
+            <a rel="next"  href="{{ page.nextSibling.url }}">
+              <span class="post-title">
+                <span class="meta-nav">Next: </span>{{ page.nextSibling.header.title }}
+              </span>
+            </a>
+            </div>
+          {% endif %}
+
+          {% if not page.isLast %}
+          <div class="nav-previous nav-link has-post-thumbnail">
+            <a rel="prev" href="{{ page.prevSibling.url }}">
+              <span class="post-title">
+                <span class="meta-nav">Previous: </span>{{ page.prevSibling.header.title }}
+              </span>
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </nav>
+  
+
       <div class="social-links">
         <ul id="menu-social-links" class="social-links-items">
           {% for icon in site.social %}

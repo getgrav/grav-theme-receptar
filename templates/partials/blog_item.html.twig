@@ -226,20 +226,3 @@
     </div>
   </div>
 </article>
-
-{% if show_prev_next %}
-<div class="blog-pager" id="blog-pager">
-  {% if not page.isFirst %}
-  <span id="blog-pager-newer-link">
-    <a class="blog-pager-newer-link" href="{{ page.nextSibling.url }}"><i class="fa fa-chevron-left"></i> Newer Post</a>
-  </span>
-  {% endif %}
-
-  {% if not page.isLast %}
-  <span id="blog-pager-older-link">
-    <a class="blog-pager-older-link" href="{{ page.prevSibling.url }}">Older Post <i class="fa fa-chevron-right"></i></a>
-  </span>
-  {% endif %}
-  <a class="home-link" href="{{ base_url_absolute }}">Home</a>
-</div>
-{% endif %}
