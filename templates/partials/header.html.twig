@@ -72,7 +72,7 @@
           {% endif %}
         </div>
       </nav>
-  
+
 
       <div class="social-links">
         <ul id="menu-social-links" class="social-links-items">
@@ -98,5 +98,12 @@
       </div>
    </div>
 </section>
+
+<div id="site-header-widgets" class="widget-area site-header-widgets">
+{% if config.plugins.simplesearch.enabled %}
+    {% include 'partials/simplesearch_searchbox_top.html.twig' %}
+{% endif %}
+
+</div>
 
 </header>
