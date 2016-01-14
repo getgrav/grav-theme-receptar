@@ -47,7 +47,7 @@
       <span class="screen-reader-text">Menu</span>
       </button>
 
-
+      {% if singular %}
       <nav class="navigation post-navigation links-count-2" role="navigation">
         <h1 class="screen-reader-text">Post navigation</h1>
         <div class="nav-links">
@@ -58,7 +58,7 @@
                 <span class="meta-nav">Next: </span>{{ page.nextSibling.header.title }}
               </span>
             </a>
-            </div>
+          </div>
           {% endif %}
 
           {% if not page.isLast %}
@@ -72,7 +72,7 @@
           {% endif %}
         </div>
       </nav>
-
+    {% endif %}
 
       <div class="social-links">
         <ul id="menu-social-links" class="social-links-items">

@@ -1,15 +1,14 @@
 {% extends 'partials/base.html.twig' %}
 
 {% block content %}
-{% include 'partials/blog_sidebar_header.html.twig' %}
-<div class="post">
-  <div class="entry-container">
-    <div class="entry-content  single">
-      <h1 class="entry-title">Error {{ page.header.http_response_code }}</h1>
-      {{ page.content }}
-      <div class="clear"></div>
-    </div>
-  </div>
-</div>
-{% include 'partials/blog_sidebar_footer.html.twig' %}
+<style media="screen">.blog .content-area {margin-top: 5rem;}</style>
+<main id="main" class="site-main clearfix" role="main">
+  <section id="error-404" class="error-404">
+    <header class="page-header">
+      <h1 class="page-title">Error {{ page.header.http_response_code }}</h1>
+    </header>
+    <p>{{ page.content }}</p>
+  </section>
+</main>
+
 {% endblock %}
