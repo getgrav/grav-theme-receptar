@@ -7,6 +7,7 @@
 {% endif %}
 
 {% set singular = true %}
+{% set template_body_classes = 'is-singular not-front-page single single-format-standard single-post not-scrolled ' %}
 
 {% if base_url == base_url_relative %}
   {% set feed_url = base_url~'/'~page.parent.slug %}

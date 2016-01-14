@@ -1,7 +1,6 @@
 {% extends 'partials/base.html.twig' %}
-
+{% set template_body_classes = 'error404 is-not-singular not-front-page not-scrolled' %}
 {% block content %}
-<style media="screen">.blog .content-area {margin-top: 5rem;}</style>
 <main id="main" class="site-main clearfix" role="main">
   <section id="error-404" class="error-404">
     <header class="page-header">
@@ -10,5 +9,4 @@
     <p>{{ page.content }}</p>
   </section>
 </main>
-
 {% endblock %}

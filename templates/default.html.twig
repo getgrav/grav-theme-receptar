@@ -1,13 +1,29 @@
 {% extends 'partials/base.html.twig' %}
-
+{% set banner = page.media.images|first %}
+{% set template_body_classes = 'is-singular logged-in not-front-page page page-id-2 page-template-default customize-support not-scrolled' %}
+{% set singular = true %}
 {% block content %}
-<div class="post">
-  <div class="entry-container">
-    <div class="entry-content  single">
-      <h1 class="entry-title single">{{ page.header.title }}</h1>
-      {{ page.content }}
-      <div class="clear"></div>
-    </div>
-  </div>
-</div>
+<main id="main" class="site-main clearfix" role="main">
+   <article class="page type-page status-publish hentry">
+      <div class="entry-media">
+         <figure class="post-thumbnail" itemprop="image">
+           <a href="{{ page.url }}">
+             {% if banner %}
+               {{ banner.cropZoom(480,640).html('','', 'attachment-thumbnail size-thumbnail wp-post-image') }}
+             {% else %}
+               <img class="attachment-thumbnail size-thumbnail wp-post-image" src="{{ theme_url ~ '/images/featured.jpg' }}">
+             {% endif %}
+           </a>
+         </figure>
+      </div>
+      <div class="entry-inner">
+         <header class="entry-header">
+            <h1 class="entry-title">{{ page.header.title }}</h1>
+         </header>
+         <div class="entry-content" itemprop="description">
+            {{ page.content }}
+         </div>
+      </div>
+   </article>
+</main>
 {% endblock %}

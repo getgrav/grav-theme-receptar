@@ -34,12 +34,12 @@
   {{ assets.js() }}
 
   {% if singular %}
-  <style id='receptar-stylesheet-inline-css' type='text/css'>.entry-media{background-image:url({{ page.media.images|first.url }})}</style>
+  <style id='receptar-stylesheet-inline-css' type='text/css'>.entry-media{background-image:url({% if page.media.images|first %}{{ page.media.images|first.url }}{% else %}{{ theme_url ~ '/images/featured.jpg' }}{% endif %})}</style>
   {% endif %}
 
   {% endblock head %}
 </head>
-<body id="top" class="fl-builder {% if singular %}is-singular not-front-page single single-format-standard single-post{% else %}blog has-featured-posts is-not-singular{% endif %} not-scrolled {{ page.header.body_classes }}">
+<body id="top" class="{% if template_body_classes %}{{ template_body_classes }}{% else %}fl-builder blog has-featured-posts is-not-singular{% endif %}{{ page.header.body_classes }}">
   <div id="page" class="hfeed site">
     <div class="site-inner">
       {% block header %}

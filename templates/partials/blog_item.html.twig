@@ -4,13 +4,15 @@
     <figure class="post-thumbnail">
       {% if page.media.images|first %}
       {{ page.media.images|first.cropZoom(338,451).html('','', 'attachment-receptar-featured size-receptar-featured wp-post-image') }}
+      {% else %}
+      <img class="attachment-receptar-featured size-receptar-featured wp-post-image" src="{{ theme_url ~ '/images/featured.jpg' }}">
       {% endif %}
     </figure>
   </div>
 
   <div class="entry-inner">
     <div class="entry-inner{% if truncate %}-content{% endif %}">
-
+      
       <header class="entry-header">
         {% if page.header.link %}
         <h1 class="entry-title">

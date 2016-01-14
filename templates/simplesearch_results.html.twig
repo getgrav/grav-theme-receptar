@@ -1,0 +1,16 @@
+{% extends 'partials/simplesearch_base.html.twig' %}
+{% set template_body_classes = 'fl-builder has-featured-posts is-not-singular is-posts-list not-front-page search search-results not-scrolled' %}
+{% block content %}
+<main id="main" class="site-main clearfix" role="main">
+  <section id="search-results" class="search-results">
+    <header class="page-header">
+      <h1 class="page-title">Query: <strong>{{ query }}</strong> found {{ search_results.count }} {{ 'result'|pluralize(search_results.count) }}</h1>
+    </header>
+    <div id="posts" class="posts posts-list clearfix">
+    {% for page in search_results %}
+      {% include 'partials/simplesearch_item.html.twig' with {'page':page} %}
+    {% endfor %}
+    </div>
+  </section>
+</main>
+{% endblock %}
