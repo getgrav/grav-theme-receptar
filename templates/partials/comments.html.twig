@@ -1,29 +1,31 @@
 {% if grav.twig.enable %}
-    {% if grav.twig.comments|length %}
-    <div class="comment-holder">
-      <div class="comment-thread">
-        <ol>
-          {% for comment in grav.twig.comments|array_reverse %}
-          <li class="comment">
-            <div class="comment-block">
-              <div id="bc_0_2M" class="comment-header" kind="m">
-                <cite class="user blog-author">{{comment.author|e}}</cite>
-                <span class="datetime secondary-text">
-                  {{'PLUGIN_COMMENTS.WRITTEN_ON'|t}} {{comment.date|e}}
-                </span>
-              </div>
-              {{comment.text|e}}
-              <br />
+{% if grav.twig.comments|length %}
+<div class="comment-holder">
+  <div class="comment-thread">
+    <ol class="comment-list">
+      {% for comment in grav.twig.comments|array_reverse %}
+      <li class="comment byuser bypostauthor thread-{% if loop.index is even %}even{% else %}odd{% endif %} depth-1 parent">
+        <article id="div-comment-{{ loop.index }}" class="comment-body">
+          <div class="comment-meta" kind="m">
+            <div class="comment-author">{{comment.author|e}}</div>
+            <div class="comment-metadata">
+              {{'PLUGIN_COMMENTS.WRITTEN_ON'|t}} {{comment.date|e}}
             </div>
-          </li>
-          {% endfor %}
-        </ol>
-      </div>
-    </div>
+          </div>
+          <div class="comment-content">
+            {{comment.text|e}}
+            <br />
+          </div>
+        </article>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</div>
     {% endif %}
 
     <div class="comment-replybox-thread">
-    <form name="{{ grav.config.plugins.comments.form.name }}"
+    <form class="contact-form" name="{{ grav.config.plugins.comments.form.name }}"
           action="{{ grav.config.plugins.comments.form.action ?  base_url ~ grav.config.plugins.comments.form.action : page.url }}"
           method="{{ grav.config.plugins.comments.form.method|upper|default('POST') }}">
     {% for field in grav.config.plugins.comments.form.fields %}

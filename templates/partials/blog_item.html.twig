@@ -12,7 +12,7 @@
 
   <div class="entry-inner">
     <div class="entry-inner{% if truncate %}-content{% endif %}">
-      
+
       <header class="entry-header">
         {% if page.header.link %}
         <h1 class="entry-title">
@@ -207,18 +207,18 @@
 
       {% if not truncate %}
       {% if config.plugins.jscomments.enabled and config.plugins.jscomments.provider %}
-      <div class="comments" id="comments">
-        <h4>Comments:</h4>
-        <div class="comments-content">
+      <div class="comments-area-wrapper">
+        <div class="comments-area">
+        <h2 class="comments-title">Comments:</h2>
           {{ jscomments(config.plugins.jscomments.provider) }}
         </div>
       </div>
       {% endif %}
 
       {% if config.plugins.comments.enabled %}
-      <div class="comments" id="comments">
-        <h4>{{ grav.twig.comments|length }} Comments:</h4>
-        <div class="comments-content">
+      <div class="comments-area-wrapper">
+        <div class="comments-area">
+          <h2 class="comments-title">{{ grav.twig.comments|length }} Comments:</h2>
           {% include 'partials/comments.html.twig' with {'page': page} %}
         </div>
       </div>

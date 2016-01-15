@@ -1835,7 +1835,7 @@
 				.comment-list .children > li {
 					position: relative;
 					min-height: 100px;
-					padding: 1.62em 0 0 80px;
+					padding: 1.62em 0 0 0px;
 					margin: 0;
 					background: none;
 					overflow: hidden;
@@ -1851,7 +1851,7 @@
 					overflow: hidden;
 				}
 
-				.comment-body { padding: 1.62em; }
+				.comment-body { padding: 1.62em;padding-left: 0;}
 				.pingback .comment-body { padding: 0; }
 
 

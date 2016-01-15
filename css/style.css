@@ -1431,21 +1431,6 @@
 
 		/* Name */
 
-			.bypostauthor > .comment-body .comment-author:before {
-				content: '\f304';
-				position: absolute;
-				display: block;
-				width: 30px;
-				height: 30px;
-				left: 30px;
-				top: 75px;
-				margin-top: 1.62em;
-				line-height: 28px;
-				text-align: center;
-				font-size: 1.17em;
-				border-radius: 50%;
-				z-index: 1;
-			}
 
 
 
