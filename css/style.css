@@ -1377,7 +1377,9 @@
 	/**
 	 * Special pages
 	 */
-
+   .alt-content {
+         padding: 0 8rem;
+   }
 		/**
 		 * Error 404 page
 		 */
