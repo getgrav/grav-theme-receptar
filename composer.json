@@ -1,11 +1,10 @@
 {
     "name": "getgrav/grav-theme-receptar",
     "type": "grav-theme",
-    "description": "Receptar is simple, modern, responsive, high-DPI, fully customizable, stylish blog Grav theme.
-    It features split-screen book-like design inspired by a modern cook book with emphasize on beautiful imagery and typography.",
-    "keywords": ["theme","grav", "receptar", "blog"],
+    "description": "Receptar is simple, modern, responsive, high-DPI, fully customizable, stylish blog Grav theme. It features split-screen book-like design inspired by a modern cook book with emphasize on beautiful imagery and typography.",
+    "keywords": ["theme","grav", "receptar", "blog", "cookbook"],
     "homepage": "http://getgrav.org",
-    "license": "CC BY 3.0",
+    "license": "GPL2",
     "support": {
         "irc": "irc://irc.freenode.org/grav"
     },
