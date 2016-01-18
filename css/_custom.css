@@ -1,0 +1,156 @@
+/**
+ * Theme custom styles
+ *
+ * @package    Receptar
+ * @copyright  2015 WebMan - Oliver Juhas
+ *
+ * @since    1.0
+ * @version  1.0
+ */
+
+
+
+	/* Background color */
+
+		body { background-color: [[background_color]]; }
+
+	/* Header color */
+
+		.site-header {
+			background-color: [[color-header-background|alpha=20]];
+			color: [[color-header-text]];
+		}
+
+		.not-scrolled.is-posts-list .site-header,
+		.not-scrolled.paged .site-header {
+			background-color: [[color-header-background]];
+			color: [[color-header-text]];
+		}
+
+	/* Sidebar color */
+
+		.secondary {
+			background-color: [[color-sidebar-background]];
+			color: [[color-sidebar-text]];
+			border-color: [[color-sidebar-border]];
+		}
+
+		.secondary-controls,
+		.secondary h1,
+		.secondary h2,
+		.secondary h3,
+		.secondary h4,
+		.secondary h5,
+		.secondary h6,
+		.current-menu-item > a { color: [[color-sidebar-headings]]; }
+
+		.hamburger-item { background-color: [[color-sidebar-headings]]; }
+
+		.main-navigation a:hover,
+		.current-menu-item > a { background-color: [[color-sidebar-border]]; }
+
+	/* Content color */
+
+		body,
+		code { color: [[color-content-text]]; }
+
+		h1, h2, h3, h4, h5, h6,
+		.h1, .h2, .h3, .h4, .h5, .h6 { color: [[color-content-headings]]; }
+
+		.site,
+		.home .content-area,
+		.posts .hentry { background-color: [[color-content-background]]; }
+
+		.site-content { border-color: [[color-content-border]]; }
+
+		hr,
+		code,
+		pre,
+		.entry-meta-bottom { background-color: [[color-content-border]]; }
+
+		/* Alternative colors */
+
+			.site-content .pagination,
+			.site-content .comments-area-wrapper {
+				background-color: [[color-content-alt-background]];
+				color: [[color-content-alt-text]];
+				border-color: [[color-content-alt-border]];
+			}
+
+			.posts,
+			.posts .entry-inner:after { background-color: [[color-content-alt-background]]; }
+
+			.comments-area-wrapper h1,
+			.comments-area-wrapper h2,
+			.comments-area-wrapper h3,
+			.comments-area-wrapper h4,
+			.comments-area-wrapper h5,
+			.comments-area-wrapper h6 { color: [[color-content-alt-headings]]; }
+
+	/* Footer color */
+
+		.site-footer {
+			background-color: [[color-footer-background]];
+			color: [[color-footer-text]];
+		}
+
+	/* Accent color and accent text color */
+
+		a,
+		.accent-color { color: [[color-accent]]; }
+
+		mark,
+		ins,
+		.highlight,
+		pre:before,
+		.pagination .current,
+		.button,
+		button,
+		form button,
+		.fl-node-content button,
+		input[type="button"],
+		input[type="reset"],
+		input[type="submit"],
+		.post-navigation .post-title,
+		.bypostauthor > .comment-body .comment-author:before,
+		.comment-navigation a,
+		.widget_calendar tbody a,
+		.widget .tagcloud a:hover,
+		body #infinite-handle span,
+		.site-content div.sharedaddy .sd-content ul li a.sd-button:not(.no-text) {
+			background-color: [[color-accent]];
+			color: [[color-accent-text]];
+		}
+
+			.site-content div.sharedaddy .sd-content ul li a.sd-button:not(.no-text) { color: [[color-accent-text]] !important; }
+
+			.infinite-loader .spinner > div > div { background: [[color-accent]] !important; }
+
+		input:focus,
+		select:focus,
+		textarea:focus,
+		.post-navigation .post-title,
+		.widget .tagcloud a:hover { border-color: [[color-accent]]; }
+
+		mark,
+		ins,
+		.highlight {
+			-webkit-box-shadow: .38em 0 0 [[color-accent]], -.38em 0 0 [[color-accent]];
+			        box-shadow: .38em 0 0 [[color-accent]], -.38em 0 0 [[color-accent]];
+		}
+
+
+
+/**
+ * Responsive color setup
+ */
+
+	@media only screen and (max-width: 960px) {
+
+		.site-header { background-color: [[color-header-background]]; }
+
+	} /* /(max-width: 960px) */
+
+
+
+/* End of file */

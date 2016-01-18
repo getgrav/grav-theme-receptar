@@ -1,0 +1,33 @@
+{% extends 'partials/base.html.twig' %}
+
+{% set banner = page.media.images|first %}
+{% set template_body_classes = 'is-singular logged-in not-front-page page page-id-2 page-template-default customize-support not-scrolled' %}
+{% set singular = true %}
+{% block content %}
+<main id="main" class="site-main clearfix" role="main">
+   <article class="page type-page status-publish hentry">
+      <div class="entry-media">
+         <figure class="post-thumbnail" itemprop="image">
+           <a href="{{ page.url }}">
+             {% if banner %}
+               {{ banner.cropZoom(480,640).html('','', 'attachment-thumbnail size-thumbnail wp-post-image') }}
+             {% else %}
+               <img class="attachment-thumbnail size-thumbnail wp-post-image" src="{{ theme_url }}/images/{{ site.global_featured_image }}">
+             {% endif %}
+           </a>
+         </figure>
+      </div>
+      <div class="entry-inner">
+         <header class="entry-header">
+            <h1 class="entry-title">{{ page.header.title }}</h1>
+         </header>
+         <div class="entry-content contact-form" itemprop="description">
+           {{ content }}
+           {% if config.plugins.form.enabled %}
+           {% include "forms/form.html.twig" %}
+           {% endif  %}
+         </div>
+      </div>
+   </article>
+</main>
+{% endblock %}

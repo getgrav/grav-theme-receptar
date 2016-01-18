@@ -1,0 +1,14 @@
+{% extends 'partials/base.html.twig' %}
+{% set banner = page.media.images|first %}
+{% set template_body_classes = 'error404 is-not-singular not-front-page not-scrolled' %}
+{% set singular = false %}
+{% block content %}
+<main id="main" class="site-main clearfix" role="main">
+  <section class="alt-content">
+    <header class="page-header">
+      <h1 class="page-title">{{ page.header.title }}</h1>
+    </header>
+    <p>{{ page.content }}</p>
+  </section>
+</main>
+{% endblock %}

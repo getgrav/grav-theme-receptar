@@ -1,0 +1,54 @@
+/**
+ * Beaver Builder editor stylesheet
+ *
+ * @package    Receptar
+ * @copyright  2015 WebMan - Oliver Juhas
+ *
+ * @since    1.0
+ * @version  1.0
+ */
+
+
+
+/**
+ * Wider module edit form
+ */
+
+	body .fl-builder-lightbox .fl-lightbox { width: 720px; }
+
+		body .fl-builder-settings-tab { width: 100%; }
+
+
+
+/**
+ * Visual editor fixes
+ */
+
+	.wp-editor-wrap button {
+		-webkit-box-shadow: none;
+		        box-shadow: none;
+	}
+
+
+
+/**
+ * Editting content z-index
+ */
+
+	.fl-row:not(:hover) { z-index: 0; }
+
+
+
+/**
+ * Visibility
+ */
+
+	.site .fl-visible-desktop,
+	.site .fl-visible-desktop-medium,
+	.site .fl-visible-medium,
+	.site .fl-visible-medium-mobile,
+	.site .fl-visible-mobile { display: block !important; }
+
+
+
+/* End of file */

@@ -1,0 +1,56 @@
+{% if grav.twig.enable %}
+{% if grav.twig.comments|length %}
+<div class="comment-holder">
+  <div class="comment-thread">
+    <ol class="comment-list">
+      {% for comment in grav.twig.comments|array_reverse %}
+      <li class="comment byuser bypostauthor thread-{% if loop.index is even %}even{% else %}odd{% endif %} depth-1 parent">
+        <article id="div-comment-{{ loop.index }}" class="comment-body">
+          <div class="comment-meta" kind="m">
+            <div class="comment-author">{{comment.author|e}}</div>
+            <div class="comment-metadata">
+              {{'PLUGIN_COMMENTS.WRITTEN_ON'|t}} {{comment.date|e}}
+            </div>
+          </div>
+          <div class="comment-content">
+            {{comment.text|e}}
+            <br />
+          </div>
+        </article>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</div>
+    {% endif %}
+
+    <div class="comment-replybox-thread">
+    <form class="contact-form" name="{{ grav.config.plugins.comments.form.name }}"
+          action="{{ grav.config.plugins.comments.form.action ?  base_url ~ grav.config.plugins.comments.form.action : page.url }}"
+          method="{{ grav.config.plugins.comments.form.method|upper|default('POST') }}">
+    {% for field in grav.config.plugins.comments.form.fields %}
+
+        {% set value = form.value(field.name) %}
+        {% if field.evaluateDefault %}
+            {% set value = evaluate(field.evaluateDefault) %}
+        {% endif %}
+        <div>
+            {% include "forms/fields/#{field.type}/#{field.type}.html.twig" %}
+        </div>
+    {% endfor %}
+
+        <div class="buttons">
+        {% for button in grav.config.plugins.comments.form.buttons %}
+            <button class="btn" type="{{ button.type|default('submit') }}">{{ button.value|default('Submit') }}</button>
+        {% endfor %}
+        </div>
+
+        {{ nonce_field('form', 'form-nonce') }}
+    </form>
+
+    {% if form.message %}
+    <div class="alert">{{ form.message }}</div>
+    {% endif %}
+    </div>
+
+{% endif %}

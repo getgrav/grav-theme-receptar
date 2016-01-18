@@ -1,0 +1,35 @@
+{% embed 'partials/base.html.twig' %}
+
+    {% block slider %}
+      {% include 'partials/slider.html.twig' %}
+    {% endblock %}
+
+    {% set collection = page.collection() %}
+    {% set base_url = page.url %}
+    {% set feed_url = base_url %}
+
+    {% if base_url == '/' %}
+    {% set base_url = '' %}
+    {% endif %}
+
+    {% if base_url == base_url_relative %}
+    {% set feed_url = base_url~'/'~page.slug %}
+    {% endif  %}
+
+    {% block content %}
+
+    {{ page.content }}
+
+        <div id="posts" class="posts posts-list clearfix">
+          {% for child in collection %}
+            {% include 'partials/blog_item.html.twig' with {'page':child, 'truncate':true} %}
+          {% endfor %}
+        </div>
+
+        {% if config.plugins.pagination.enabled and collection.params.pagination %}
+        {% include 'pagination.html.twig' with {'pagination':collection.params.pagination} %}
+        {% endif %}
+
+    {% endblock %}
+
+{% endembed %}

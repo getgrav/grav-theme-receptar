@@ -1,0 +1,109 @@
+<header id="masthead" class="site-header" >
+  <div class="site-branding">
+    {% if site.title  %}
+    <h1 class="site-title logo type-text">
+      <a href='{{ base_url_absolute }}'>{{ site.title }}</a>
+    </h1>
+    {% endif %}
+    {% if site.description  %}
+    <h2 class="site-description">{{ site.description }}</h2>
+    {% endif %}
+  </div>
+
+  <section id="secondary" class="secondary">
+   <div class="secondary-content">
+      <div class="secondary-content-container">
+        <div class="site-branding">
+          {% if site.title  %}
+          <h1 class="site-title logo type-text">
+            <a href='{{ base_url_absolute }}'>{{ site.title }}</a>
+          </h1>
+          {% endif %}
+          {% if site.description  %}
+          <h2 class="site-description">{{ site.description }}</h2>
+          {% endif %}
+        </div>
+         <nav id="site-navigation" class="main-navigation" role="navigation" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
+            <span class="screen-reader-text">Receptar site navigation</span>
+            <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+            <div class="menu">
+              {% block navigation %}
+                {% include 'partials/navigation.html.twig' %}
+              {% endblock %}
+            </div>
+         </nav>
+         <div class="widget-area sidebar" role="complementary" itemscope="" itemtype="http://schema.org/WPSideBar">
+           {% block sidebar %}
+             {% include 'partials/sidebar.html.twig' %}
+           {% endblock %}
+         </div>
+      </div>
+   </div>
+   <div class="secondary-controls">
+      <button id="menu-toggle" class="menu-toggle" aria-controls="secondary" aria-expanded="false">
+      <span class="hamburger-item"></span>
+      <span class="hamburger-item"></span>
+      <span class="hamburger-item"></span>
+      <span class="screen-reader-text">Menu</span>
+      </button>
+
+      {% if singular %}
+      <nav class="navigation post-navigation links-count-2" role="navigation">
+        <h1 class="screen-reader-text">Post navigation</h1>
+        <div class="nav-links">
+          {% if not page.isFirst %}
+          <div class="nav-next nav-link has-post-thumbnail">
+            <a rel="next"  href="{{ page.nextSibling.url }}">
+              <span class="post-title">
+                <span class="meta-nav">Next: </span>{{ page.nextSibling.header.title }}
+              </span>
+            </a>
+          </div>
+          {% endif %}
+
+          {% if not page.isLast %}
+          <div class="nav-previous nav-link has-post-thumbnail">
+            <a rel="prev" href="{{ page.prevSibling.url }}">
+              <span class="post-title">
+                <span class="meta-nav">Previous: </span>{{ page.prevSibling.header.title }}
+              </span>
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </nav>
+    {% endif %}
+
+      <div class="social-links">
+        <ul id="menu-social-links" class="social-links-items">
+          {% for icon in site.social %}
+            <li id="menu-item-{{ loop.index }}" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-{{ loop.index }}">
+              <a href="{{ icon.url }}">
+                <span class="screen-reader-text">{{ icon.text }}</span>
+              </a>
+            </li>
+          {% endfor %}
+
+          {% if config.plugins.feed.enabled %}
+            <li id="menu-item-1245" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1245">
+              <a href="{{ feed_url }}.atom"><span class="screen-reader-text">Atom 1.0</span></a>
+            </li>
+            <li id="menu-item-1246" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1246">
+              <a href="{{ feed_url }}.rss"><span class="screen-reader-text">RSS</span></a>
+            </li>
+          {% endif %}
+
+
+        </ul>
+      </div>
+   </div>
+</section>
+
+<div id="site-header-widgets" class="widget-area site-header-widgets">
+{% if config.plugins.simplesearch.enabled %}
+    {% include 'partials/simplesearch_searchbox_top.html.twig' %}
+{% endif %}
+
+</div>
+
+</header>

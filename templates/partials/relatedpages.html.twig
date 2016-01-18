@@ -1,0 +1,29 @@
+{% for related_path, score in related_pages %}
+{% set related = grav['pages'].get(related_path) %}
+{% if related %}
+<div class="jp-relatedposts-post jp-relatedposts-post{{ loop.index }} jp-relatedposts-post-thumbs" data-post-id="{{ loop.index }}" data-post-format="false">
+  <a class="jp-relatedposts-post-a" href="{{ related.url }}" title="{{ related.title }}" rel="nofollow">
+    {% if related.media.images|first %}
+    {{ related.media.images|first.cropZoom(218,125).html('', '', 'jp-relatedposts-post-img') }}
+    {% endif %}
+  </a>
+  <h4 class="jp-relatedposts-post-title">
+    <a class="jp-relatedposts-post-a" href="{{ related.url }}" title="{{ related.title }}" rel="nofollow">
+      {{ related.title }}
+      {% if config.plugins.relatedpages.show_score %}
+      <span class="score">({{ score }})</span>
+      {% endif %}
+    </a>
+  </h4>
+
+  {% if related.taxonomy.category %}
+  <p class="jp-relatedposts-post-context">
+    {% for category in related.taxonomy.category %}
+    In "{{ category|capitalize }}{% if not loop.last %}, {% endif %}"
+    {% endfor %}
+  </p>
+  {% endif %}
+
+</div>
+{% endif %}
+{% endfor %}

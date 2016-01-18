@@ -1,0 +1,12 @@
+{% extends 'partials/base.html.twig' %}
+{% set template_body_classes = 'error404 is-not-singular not-front-page not-scrolled' %}
+{% block content %}
+<main id="main" class="site-main clearfix" role="main">
+  <section id="error-404" class="error-404">
+    <header class="page-header">
+      <h1 class="page-title">Error {{ page.header.http_response_code }}</h1>
+    </header>
+    <p>{{ page.content }}</p>
+  </section>
+</main>
+{% endblock %}

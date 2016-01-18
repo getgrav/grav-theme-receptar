@@ -1,0 +1,291 @@
+/**
+ * Theme colors stylesheet
+ *
+ * Notes:
+ *   * = Doesn't change via Customizer.
+ *
+ * @package    Receptar
+ * @copyright  2015 WebMan - Oliver Juhas
+ *
+ * @since    1.0
+ * @version  1.0
+ */
+
+
+
+/**
+ * Background
+ */
+
+	/**
+	 * Background color
+	 */
+
+		/* RGBA backgrounds */
+
+			button,
+			input,
+			select,
+			textarea,
+			tbody tr:hover td,
+			tbody tr:hover th,
+			.pagination a:hover,
+			.site .wp-playlist { background-color: rgba(0,0,0, .1); } /* * */
+
+			.site-header { background-color: rgba(0,0,0, .2); }
+
+			.gallery-caption { background-color: rgba(0,0,0, .8); } /* * */
+
+		/* Basic background colors */
+
+			.site,
+			.hamburger-item,
+			.home .content-area,
+			.posts .hentry { background-color: #fff; }
+
+			body,
+			.site-footer { background-color: #f5f7f9; }
+
+			hr,
+			code,
+			pre,
+			.entry-meta-bottom { background-color: #eaecee; }
+
+			.main-navigation a:hover,
+			.current-menu-item > a { background-color: #3a3c3e; }
+
+			.not-scrolled.is-posts-list .site-header,
+			.not-scrolled.paged .site-header,
+			.pagination,
+			.posts,
+			.comments-area-wrapper,
+			.posts .entry-inner:after { background-color: #2a2c2e; }
+
+				.widget .tagcloud a:before { background-color: #2a2c2e; } /* * */
+
+			.secondary { background-color: #1a1c1e; }
+
+		/* Accent background color */
+
+			mark,
+			ins,
+			.highlight,
+			pre:before,
+			.pagination .current,
+			.button,
+			button,
+			form button,
+			.fl-node-content button,
+			input[type="button"],
+			input[type="reset"],
+			input[type="submit"],
+			.post-navigation .post-title,
+			.bypostauthor > .comment-body .comment-author:before,
+			.comment-navigation a,
+			.widget_calendar tbody a,
+			.widget .tagcloud a:hover,
+			body #infinite-handle span,
+			.site-content div.sharedaddy .sd-content ul li a.sd-button:not(.no-text) { background-color: #e53739; }
+
+
+
+	/**
+	 * Other background setup
+	 */
+
+		/* Background gradients */
+
+			.site-banner-media:before {
+				background: transparent;                                                                    /* * */
+				background: -webkit-linear-gradient(       top, rgba(0,0,0, 0) 0%, rgba(0,0,0, .33) 100% ); /* * */
+				background:         linear-gradient( to bottom, rgba(0,0,0, 0) 0%, rgba(0,0,0, .33) 100% ); /* * */
+			}
+
+		/* Inset shadows */
+
+			.button,
+			button,
+			input[type="button"],
+			input[type="reset"],
+			input[type="submit"] {
+				-webkit-box-shadow: inset 0 0 0 rgba(0,0,0, .2); /* * */
+				        box-shadow: inset 0 0 0 rgba(0,0,0, .2); /* * */
+			}
+			.button:active,
+			button:active,
+			input[type="button"]:active,
+			input[type="reset"]:active,
+			input[type="submit"]:active {
+				-webkit-box-shadow: inset 0 100px 0 rgba(0,0,0, .2); /* * */
+				        box-shadow: inset 0 100px 0 rgba(0,0,0, .2); /* * */
+			}
+
+		/* Special background color fix for multiline markers */
+
+			mark,
+			ins,
+			.highlight {
+				-webkit-box-shadow: .38em 0 0 #e53739, -.38em 0 0 #e53739;
+				        box-shadow: .38em 0 0 #e53739, -.38em 0 0 #e53739;
+			}
+
+		/* !important overrides */
+
+			/* Accent background color */
+
+				.infinite-loader .spinner > div > div { background: #e53739 !important; }
+
+
+
+/**
+ * Text color
+ */
+
+	/* Basic text colors */
+
+		mark,
+		ins,
+		.highlight,
+		pre:before,
+		.pagination .current,
+		.button,
+		button,
+		form button,
+		.fl-node-content button,
+		input[type="button"],
+		input[type="reset"],
+		input[type="submit"],
+		.post-navigation .post-title,
+		.bypostauthor > .comment-body .comment-author:before,
+		.comment-navigation a,
+		.widget_calendar tbody a,
+		.widget .tagcloud a:hover,
+		body #infinite-handle span,
+		.site-header { color: #fff; }
+
+			.site-content div.sharedaddy .sd-content ul li a.sd-button:not(.no-text) { color: #fff !important; }
+
+		.secondary-controls,
+		.secondary h1,
+		.secondary h2,
+		.secondary h3,
+		.secondary h4,
+		.secondary h5,
+		.secondary h6,
+		.comments-area-wrapper h1,
+		.comments-area-wrapper h2,
+		.comments-area-wrapper h3,
+		.comments-area-wrapper h4,
+		.comments-area-wrapper h5,
+		.comments-area-wrapper h6,
+		.current-menu-item > a { color: #fff; }
+
+		.gallery-caption,
+		.widget .tagcloud a:before { color: #caccce; }
+
+		.secondary,
+		.pagination,
+		.comments-area-wrapper,
+		.site-footer { color: #9a9c9e; }
+
+		body,
+		code { color: #6a6c6e; }
+
+		h1, h2, h3, h4, h5, h6,
+		.h1, .h2, .h3, .h4, .h5, .h6 { color: #1a1c1e; }
+
+	/* Accent text color */
+
+		a,
+		.accent-color { color: #e53739; }
+
+	/* Form fields placeholder text color */
+
+		         ::-webkit-input-placeholder { color: inherit; }            /* * */
+		              :-ms-input-placeholder { color: inherit !important; } /* * */
+		                  ::-moz-placeholder { color: inherit; }            /* * */
+		:disabled::-webkit-input-placeholder { color: inherit; }            /* * */
+		     :disabled:-ms-input-placeholder { color: inherit !important; } /* * */
+		         :disabled::-moz-placeholder { color: inherit; }            /* * */
+
+
+
+/**
+ * Border color
+ */
+
+	/* Basic border color */
+
+		.site-content { border-color: #eaecee; }
+
+		.secondary,
+		.site-content .pagination,
+		.site-content .comments-area-wrapper { border-color: #3a3c3e; }
+
+	/* Accent border color */
+
+		input:focus,
+		select:focus,
+		textarea:focus,
+		.post-navigation .post-title,
+		.widget .tagcloud a:hover { border-color: #e53739; }
+
+	/* Inherit border color */
+
+		blockquote:before,
+		blockquote:after,
+		table, td, th,
+		blockquote.alignleft:before,
+		blockquote.alignleft:after,
+		blockquote.alignright:before,
+		blockquote.alignright:after,
+		button,
+		input,
+		select,
+		textarea,
+		.comment-meta,
+		.comment-respond,
+		.comment-list .comment-respond,
+		.post-table-of-contents,
+		.post-table-of-contents.top,
+		div.sharedaddy,
+		.site div#jp-relatedposts,
+		.widget ul li,
+		.widget .tagcloud a,
+		.widget .tagcloud a:before,
+		.pagination,
+		.secondary *,
+		.main-navigation li,
+		.site-content *,
+		.fl-builder-content { border-color: inherit; } /* * */
+
+
+
+/**
+ * Text selections
+ */
+
+	::selection {
+		background: #fafcbe; /* * */
+		color: #6a6c2e;      /* * */
+	}
+	::-moz-selection {
+		background: #fafcbe; /* * */
+		color: #6a6c2e;      /* * */
+	}
+
+
+
+/**
+ * Responsive color setup
+ */
+
+	@media only screen and (max-width: 960px) {
+
+		.site-header { background-color: #2a2c2e; }
+
+	} /* /(max-width: 960px) */
+
+
+
+/* End of file

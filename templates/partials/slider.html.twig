@@ -1,0 +1,22 @@
+<div id="site-banner" class="site-banner enable-slider">
+  <div class="site-banner-inner">
+      {% for slide in site.slider %}
+      <article data-id="post-{{ loop.index }}" class="post-{{ loop.index }} post type-post status-publish format-standard has-post-thumbnail hentry tag-no-excerpt is-featured" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+            {% if slide.image %}
+              <div class="site-banner-media">
+                <figure class="site-banner-thumbnail" title="{{ slide.title }}" itemprop="image">
+                  <img width="1920" height="640" src="{{ theme_url }}/images/slideshow/{{ slide.image }}" class="attachment-receptar-banner size-receptar-banner wp-post-image" alt="{{ slide.title }}"/>
+                </figure>
+              </div>
+            {% endif %}
+            {% if slide.title %}
+              <div class="site-banner-header">
+                <h1 class="entry-title" itemprop="name">
+                  <a href="{{ slide.url }}" class="highlight" rel="bookmark">{{ slide.title }}</a>
+                </h1>
+              </div>
+            {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</div>

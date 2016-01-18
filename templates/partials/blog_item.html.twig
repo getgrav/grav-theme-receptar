@@ -1,0 +1,230 @@
+<article id="post-{{ loop.index }}" class="post-{{ loop.index }} post type-post status-publish format-standard has-post-thumbnail hentry category-cakes tag-no-excerpt">
+
+  <div class="entry-media {% if truncate %}entry-{% if page.header.youtube or page.header.soundcloud or page.header.vimeo %}video{% else %}image{% endif %}{% else %} resp_video{% endif %}">
+    <figure class="post-thumbnail">
+      {% if page.media.images|first %}
+      {{ page.media.images|first.cropZoom(338,451).html('','', 'attachment-receptar-featured size-receptar-featured wp-post-image') }}
+      {% else %}
+      <img class="attachment-receptar-featured size-receptar-featured wp-post-image" src="{{ theme_url }}/images/{{ site.global_featured_image }}">
+      {% endif %}
+    </figure>
+  </div>
+
+  <div class="entry-inner">
+    <div class="entry-inner{% if truncate %}-content{% endif %}">
+
+      <header class="entry-header">
+        {% if page.header.link %}
+        <h1 class="entry-title">
+          {% if page.header.continue_link is not sameas(false) %}
+          <a href="{{ page.url }}"><i class="fa fa-angle-double-right"></i></a>
+          {% endif %}
+          <a href="{{ page.header.link }}">{{ page.title }}</a>
+        </h1>
+        {% else %}
+        <h1 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+        {% endif %}
+        {% if not truncate %}
+        <div class="entry-category">
+          {% if page.taxonomy.category %}
+          <span class="cat-links entry-meta-element">
+            {% for category in page.taxonomy.category %}
+            <a href="{{ base_url }}/category:{{ category }}" rel="category tag">{{ category }}{% if not loop.last %}, {% endif %}</a>
+            {% endfor %}
+          </span>
+          {% endif %}
+        </div>
+        {% endif %}
+      </header>
+
+      {% if not truncate %}
+      <div class="entry-meta entry-meta-bottom">
+        <time datetime="{{ page.date|date(config.system.pages.dateformat.long) }}" class="entry-date entry-meta-element published" title="{{ page.date|date(config.system.pages.dateformat.long) }}" itemprop="datePublished">{{ page.date|date(config.system.pages.dateformat.long) }}</time>
+
+        <span class="author vcard entry-meta-element">
+          {% if page.header.author.name or site.author.name %}
+          {% if page.header.author.name %}
+          {% if page.header.author.url %}
+          <a href="{{ page.header.author.url }}">{{ page.header.author.name }}</a>
+          {% else %}
+          {{ page.header.author.name }}
+          {% endif %}
+          {% else %}
+          {% if site.author.url %}
+          <a href="{{ site.author.url }}">{{ site.author.name }}</a>
+          {% else %}
+          {{ site.author.name }}
+          {% endif %}
+          {% endif %}
+          {% endif %}
+        </span>
+        {% if page.taxonomy.tag %}
+        <span class="tags-links entry-meta-element">
+          {% for tag in page.taxonomy.tag %}
+          <a href="{{ base_url }}/tag:{{ tag }}" rel="tag">{{ tag }}{% if not loop.last %}, {% endif %}</a>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
+      {% endif %}
+      <div class="clear"></div>
+
+      <div class="entry-content">
+
+        {% if not truncate %}
+        {% if page.header.description %}
+        <div class="fl-module fl-module-rich-text text-center" style="margin-bottom: 6%;">
+          <p>
+            {% for item in page.header.description %}
+            {% if loop.last %}</br>{% endif %}
+            <strong>{{ item.option }}</strong> {{ item.value }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+          </p>
+        </div>
+        {% endif %}
+
+        {% if page.header.youtube or page.header.vimeo or page.header.soundcloud %}
+        <div class="fit-vids-style">
+        <style>
+        .fluid-width-video-wrapper {width: 100%;position: relative;padding: 0;}                                                                                   .fluid-width-video-wrapper iframe, .fluid-width-video-wrapper object, .fluid-width-video-wrapper embed { position: absolute; top: 0;                                  left: 0; width: 100%; height: 100%;}
+        </style>
+        </div>
+
+        <div class="fl-row fl-row-full-width fl-row-bg-none" style="padding-bottom: 1.62rem;">
+          <div class="fl-video fl-embed-video">
+            <div class="fluid-width-video-wrapper" style="padding-top: 56.2%;">
+              {% if page.header.youtube %}
+              <iframe src="{{ page.header.youtube }}?showinfo=0" frameborder="0" allowfullscreen></iframe>
+              {% endif %}
+              {% if page.header.vimeo %}
+              <iframe src="{{ page.header.vimeo }}" frameborder="0" allowfullscreen=""></iframe>
+              {% endif %}
+              {% if page.header.soundcloud %}
+              <iframe width="100%" height="403" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/{{ page.header.soundcloud }}&amp;auto_play=false&amp;hide_related=true&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true&amp;buying=false"></iframe>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if page.header.ingredients %}
+        <div class="fl-row fl-row-bg-none">
+          <div class="fl-row-content-wrap">
+          {% if page.header.ingredients_title %}
+          <div class="fl-rich-text">
+            <h2>{{ page.header.ingredients_title }}</h2>
+          </div>
+          {% endif %}
+          {% for row in page.header.ingredients|batch(2) %}
+          <div class="fl-col-group">
+            {% for item in row %}
+            <div class="fl-col fl-col-small" style="width: {% if row|count < 2 %}100{% else %}50{% endif %}%;">
+              <div class="fl-rich-text">
+                <h3>{{ item.title }}</h3>
+                <ul>
+                  {% for ingredient in item.list %}
+                  <li>{{ ingredient }}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+        </div>
+        {% endif %}
+        {% endif %}
+        <div class="clear"></div>
+
+        {% if page.header.continue_link is sameas(false) %}
+          {{ page.content }}
+        {% if not truncate %}
+          {% set show_prev_next = true %}
+        {% endif %}
+        {% elseif truncate and page.summary != page.content %}
+          {% if site.summary.striptags == true %}
+            {{ page.summary|striptags }}
+          {% else %}
+            {{ page.summary }}
+          {% endif %}
+        {% elseif truncate %}
+          {{ page.content|truncate(550) }}
+        {% else %}
+          {{ page.content }}
+          {% set show_prev_next = true %}
+        {% endif %}
+
+        {% if page.header.continue_link is not sameas(false) %}
+        {% if truncate and page.summary != page.content %}
+        <div class="link-more"><a href="{{ page.url }}">Continue Reading</a></div>
+        {% elseif truncate %}
+        <div class="link-more"><a href="{{ page.url }}">Continue Reading</a></div>
+        {% endif %}
+        {% endif %}
+
+        {% if not truncate %}
+        <div class="sharedaddy sd-sharing-enabled">
+          <div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing">
+            <h3 class="sd-title">Share this:</h3>
+            <div class="sd-content">
+              <ul>
+                <li class="share-facebook">
+                  <a rel="nofollow" data-shared="sharing-facebook-368" class="share-facebook sd-button share-icon" href="https://www.facebook.com/sharer/sharer.php?u={{ page.url(true) }}" target="_blank" title="{{ page.header.title }}"><span>Facebook</span></a>
+                </li>
+                <li class="share-twitter">
+                  <a rel="nofollow" data-shared="sharing-twitter-368" class="share-twitter sd-button share-icon" href="http://twitter.com/home?status={{ page.title|replace({' ': "%20"}) }}-{{ page.url(true) }}" target="_blank" title="{{ page.header.title }}"><span>Twitter</span></a>
+                </li>
+                <li class="share-google-plus-1">
+                  <a rel="nofollow" data-shared="sharing-google-368" class="share-google-plus-1 sd-button share-icon" href="https://plus.google.com/share?url={{ page.url(true) }}" target="_blank" title="{{ page.header.title }}"><span>Google</span></a>
+                </li>
+                <li class="share-pinterest">
+                  <a rel="nofollow" data-shared="sharing-pinterest-368" class="share-pinterest sd-button share-icon" href="https://www.pinterest.com/pin/create/button/?url={{ page.url(true) }}" target="_blank" title="{{ page.header.title }}"><span>Pinterest</span></a>
+                </li>
+                <li class="share-end"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript">var windowOpen;jQuery(document).on('ready post-load',function(){jQuery('a.share-facebook').on('click',function(){if('undefined'!==typeof windowOpen){windowOpen.close();}
+        windowOpen=window.open(jQuery(this).attr('href'),'wpcomfacebook','menubar=1,resizable=1,width=600,height=400');return false;});});</script>
+        <script type="text/javascript">var windowOpen;jQuery(document).on('ready post-load',function(){jQuery('a.share-twitter').on('click',function(){if('undefined'!==typeof windowOpen){windowOpen.close();}
+        windowOpen=window.open(jQuery(this).attr('href'),'wpcomtwitter','menubar=1,resizable=1,width=600,height=350');return false;});});</script>
+        <script type="text/javascript">var windowOpen;jQuery(document).on('ready post-load',function(){jQuery('a.share-google-plus-1').on('click',function(){if('undefined'!==typeof windowOpen){windowOpen.close();}
+        windowOpen=window.open(jQuery(this).attr('href'),'wpcomgoogle-plus-1','menubar=1,resizable=1,width=480,height=550');return false;});});</script>
+        {% endif %}
+      </div>
+
+      {% if not truncate %}
+      <div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+        <h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+        <div class="jp-relatedposts-items jp-relatedposts-items-visual">
+          {% include 'partials/relatedpages.html.twig' %}
+        </div>
+      </div>
+      <hr/>
+      {% endif %}
+
+      {% if not truncate %}
+      {% if config.plugins.jscomments.enabled and config.plugins.jscomments.provider %}
+      <div class="comments-area-wrapper">
+        <div class="comments-area">
+        <h2 class="comments-title">Comments:</h2>
+          {{ jscomments(config.plugins.jscomments.provider) }}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if config.plugins.comments.enabled %}
+      <div class="comments-area-wrapper">
+        <div class="comments-area">
+          <h2 class="comments-title">{{ grav.twig.comments|length }} Comments:</h2>
+          {% include 'partials/comments.html.twig' with {'page': page} %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% endif %}
+    </div>
+  </div>
+</article>
