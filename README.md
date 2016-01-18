@@ -8,10 +8,9 @@ It features split-screen book-like design inspired by a modern cook book with em
 # Features
 
 * Navigation menu included
-* Clean Layout
+* Split-screen book-like design
 * Blog Layout
-* Minimalistic
-* FeedBurner support
+* Beautiful imagery and typography.
 * Social Sharing
 * Browser Compatibility
 * Supports YouTube

@@ -25,16 +25,9 @@
 </aside>
 {% endif %}
 
-{% if config.plugins.relatedpages.enabled and related_pages|length > 0 %}
-<aside class="widget widget_recent_comments">
-  <h2 class="widget-title">Related Pages</h2>
-    {% include 'partials/relatedpages.html.twig' %}
-</aside>
-{% endif %}
-
 {% if config.plugins.archives.enabled %}
 <aside class="widget widget_recent_entries">
-  <h2 class="widget-title">Archives</h2>
+  <h2 class="widget-title">Latest Recipes</h2>
     {% include 'partials/archives.html.twig' %}
 </aside>
 {% endif %}
