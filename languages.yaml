@@ -14,6 +14,7 @@ en:
   POPULAR_TAGS: Popular Tags
   LATEST_RECIPES: Latest Recipes
   RELATED_POSTS: Related
+  SEARCH_FIELD: Type and press enter...
 
 el:
   SITE:
@@ -139,6 +140,7 @@ pl:
   POPULAR_TAGS: Popularne Tagi
   LATEST_RECIPES: Ostatnie przepisy
   RELATED_POSTS: Zobacz również:
+  SEARCH_FIELD: Zacznij pisać i wciśnij enter...
 
 pt:
   SITE:
