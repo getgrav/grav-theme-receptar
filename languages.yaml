@@ -9,6 +9,11 @@ en:
   MONTHS_OF_THE_YEAR: [January, February, March, April, May, June, July, August, September, October, November, December]
   DAYS_OF_THE_WEEK: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
   READ_MORE: Read More
+  SEARCH: Search
+  RANDOM_ARTICLE: Random Article
+  POPULAR_TAGS: Popular Tags
+  LATEST_RECIPES: Latest Recipes
+  RELATED_POSTS: Related
 
 el:
   SITE:
@@ -129,6 +134,11 @@ pl:
   MONTHS_OF_THE_YEAR: [Styczeń, Luty, Marzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień]
   DAYS_OF_THE_WEEK: [Poniedziałek, Wtorek, Środa, Czwartek, Piątek, Sobota, Niedziela]
   READ_MORE: Czytaj Więcej
+  SEARCH: Szukaj
+  RANDOM_ARTICLE: Losowy Artykuł
+  POPULAR_TAGS: Popularne Tagi
+  LATEST_RECIPES: Ostatnie przepisy
+  RELATED_POSTS: Zobacz również:
 
 pt:
   SITE:

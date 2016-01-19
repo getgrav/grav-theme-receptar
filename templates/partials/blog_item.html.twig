@@ -166,7 +166,7 @@
         {% if not truncate %}
         <div class="sharedaddy sd-sharing-enabled">
           <div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing">
-            <h3 class="sd-title">Share this:</h3>
+            <h3 class="sd-title">{{ 'SHARE'|t }}</h3>
             <div class="sd-content">
               <ul>
                 <li class="share-facebook">
@@ -197,7 +197,7 @@
 
       {% if not truncate %}
       <div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
-        <h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+        <h3 class="jp-relatedposts-headline"><em>{{ 'RELATED_POSTS'|t }}</em></h3>
         <div class="jp-relatedposts-items jp-relatedposts-items-visual">
           {% include 'partials/relatedpages.html.twig' %}
         </div>

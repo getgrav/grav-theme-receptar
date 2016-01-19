@@ -6,28 +6,28 @@
 
 {% if config.plugins.simplesearch.enabled %}
 <aside class="widget HTML">
-  <h2 class="widget-title">SimpleSearch</h2>
+  <h2 class="widget-title">{{ 'SEARCH'|t }}</h2>
     {% include 'partials/simplesearch_searchbox.html.twig' %}
 </aside>
 {% endif %}
 
 {% if config.plugins.random.enabled %}
 <aside class="widget HTML">
-  <h2 class="widget-title">Random Article</h2>
+  <h2 class="widget-title">{{ 'RANDOM_ARTICLE'|t }}</h2>
     <a class="button" href="{{ base_url_relative }}/random"><i class="fa fa-retweet"></i> I'm Feeling Lucky!</a>
 </aside>
 {% endif %}
 
 {% if config.plugins.taxonomylist.enabled %}
 <aside class="widget widget_tag_cloud">
-  <h2 class="widget-title">Popular Tags</h2>
+  <h2 class="widget-title">{{ 'POPULAR_TAGS'|t }}</h2>
     {% include 'partials/taxonomylist.html.twig' with {'base_url':new_base_url, 'taxonomy':'tag'} %}
 </aside>
 {% endif %}
 
 {% if config.plugins.archives.enabled %}
 <aside class="widget widget_recent_entries">
-  <h2 class="widget-title">Latest Recipes</h2>
+  <h2 class="widget-title">{{ 'LATEST_RECIPES'|t }}</h2>
     {% include 'partials/archives.html.twig' %}
 </aside>
 {% endif %}
