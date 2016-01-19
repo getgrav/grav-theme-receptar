@@ -39,7 +39,7 @@
 
       {% if not truncate %}
       <div class="entry-meta entry-meta-bottom">
-        <time datetime="{{ page.date|date(config.system.pages.dateformat.long) }}" class="entry-date entry-meta-element published" title="{{ page.date|date(config.system.pages.dateformat.long) }}" itemprop="datePublished">{{ page.date|date(config.system.pages.dateformat.long) }}</time>
+        <time datetime="{{ 'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }} {{ page.date|date("d, Y") }}" class="entry-date entry-meta-element published" title="{{ 'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }} {{ page.date|date("d, Y") }}" itemprop="datePublished">{{ 'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }} {{ page.date|date("d, Y") }}</time>
 
         <span class="author vcard entry-meta-element">
           {% if page.header.author.name or site.author.name %}
@@ -157,9 +157,9 @@
 
         {% if page.header.continue_link is not sameas(false) %}
         {% if truncate and page.summary != page.content %}
-        <div class="link-more"><a href="{{ page.url }}">Continue Reading</a></div>
+        <div class="link-more"><a href="{{ page.url }}">{{ 'READ_MORE'|t }}</a></div>
         {% elseif truncate %}
-        <div class="link-more"><a href="{{ page.url }}">Continue Reading</a></div>
+        <div class="link-more"><a href="{{ page.url }}">{{ 'READ_MORE'|t }}</a></div>
         {% endif %}
         {% endif %}
 

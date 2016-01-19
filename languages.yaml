@@ -8,6 +8,7 @@ en:
   SHARE: Share
   MONTHS_OF_THE_YEAR: [January, February, March, April, May, June, July, August, September, October, November, December]
   DAYS_OF_THE_WEEK: [Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+  READ_MORE: Read More
 
 el:
   SITE:
@@ -19,6 +20,7 @@ el:
   SHARE: Κοινοποίηση
   MONTHS_OF_THE_YEAR: [Ιανουάριος, Φεβρουάριος, Μάρτιος, Απρίλιος, Μάιος, Ιούνιος, Ιούλιος, Αύγουστος, Σεπτέμβριος, Οκτώβριος, Νοέμβριος, Δεκέμβριος]
   DAYS_OF_THE_WEEK: [Δευτέρα, Τρλιτη, Τετάρτη, Πέμπτη, Παρασκευή, Σαββάτο, Κυριακή]
+  READ_MORE: Διαβάστε περισσότερα
 
 es:
   SITE:
@@ -30,6 +32,7 @@ es:
   SHARE: Compartir
   MONTHS_OF_THE_YEAR: [Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Augosto, Septiembre, Octubre, Noviembre, Diciembre]
   DAYS_OF_THE_WEEK: [Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo]
+  READ_MORE: Leer Más
 
 cs:
   SITE:
@@ -41,6 +44,7 @@ cs:
   SHARE: Sdílet
   MONTHS_OF_THE_YEAR: [Leden, Únor, Březen, Duben, Květen, Červen, Červenec, Srpen, Září, Říjen, Listopad, Prosinec]
   DAYS_OF_THE_WEEK: [Pondělí, Úterý, Středa, Čtvrtek, Pátek, Sobota, Neděle]
+  READ_MORE: Čtěte více
 
 de:
   SITE:
@@ -52,6 +56,7 @@ de:
   SHARE: Teilen
   MONTHS_OF_THE_YEAR: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
   DAYS_OF_THE_WEEK: [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag]
+  READ_MORE: Lesen Sie weiter
 
 it:
   SITE:
@@ -63,6 +68,7 @@ it:
   SHARE: Condividi
   MONTHS_OF_THE_YEAR: [Gennaio, Febbraio, Marzo, Cprile, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre, Novembre, Dicembre]
   DAYS_OF_THE_WEEK: [Lunedi, Martedi, Mercoledi, Giovedi, Venerdi, Sabato, Domenica]
+  READ_MORE: Per saperne di più
 
 fi:
   SITE:
@@ -74,6 +80,7 @@ fi:
   SHARE: Jaa
   MONTHSOFTHE_YEAR: [Tammikuu, Helmikuu, Maaliskuu, Huhtikuu, Toukokuu, Kesäkuu, Heinäkuu, Elokuu, Syyskuu, Lokakuu, Marraskuu, Joulukuu]
   DAYSOFTHE_WEEK: [Maanantai, Tiistai, Keskiviikko, Torstai, Perjantai, Lauantai, Sunnuntai]
+  READ_MORE: Lue lisää
 
 fr:
   SITE:
@@ -85,6 +92,7 @@ fr:
   SHARE: Partagez
   MONTHS_OF_THE_YEAR: [Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
   DAYS_OF_THE_WEEK: [Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi, Dimanche]
+  READ_MORE: Lire la suite
 
 nl:
   SITE:
@@ -96,6 +104,7 @@ nl:
   SHARE: Delen
   MONTHS_OF_THE_YEAR: [Januari, Februari, Maart, April, Mei Juni, Juli, Augustus, September, Oktober, November, December]
   DAYS_OF_THE_WEEK: [Maandag, Dinsdag, Woensdag, Donderdag, Vrijdag, Zaterdag, Zondag]
+  READ_MORE: Read More
 
 nb:
   SITE:
@@ -107,6 +116,7 @@ nb:
   SHARE: Del
   MONTHS_OF_THE_YEAR: [januar, februar, mars, april, mai, juni, juli, august, september, oktobernovember, desember]
   DAYS_OF_THE_WEEK: [mandag, tirsdag, onsdag, torsdag, fredag, lørdag, søndag]
+  READ_MORE: Les mer
 
 pl:
   SITE:
@@ -118,6 +128,7 @@ pl:
   SHARE: Podziel się
   MONTHS_OF_THE_YEAR: [Styczeń, Luty, Marzec, Kwiecień, Maj, Czerwiec, Lipiec, Sierpień, Wrzesień, Październik, Listopad, Grudzień]
   DAYS_OF_THE_WEEK: [Poniedziałek, Wtorek, Środa, Czwartek, Piątek, Sobota, Niedziela]
+  READ_MORE: Czytaj Więcej
 
 pt:
   SITE:
@@ -129,6 +140,7 @@ pt:
   SHARE: Partilhar
   MONTHS_OF_THE_YEAR: [Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
   DAYS_OF_THE_WEEK: [Segunda, Terça, Quarta, Quinta, Sexta, Sábado, Domingo]
+  READ_MORE: Leia mais
 
 ro:
   SITE:
@@ -140,6 +152,7 @@ ro:
   SHARE: Distribuie
   MONTHS_OF_THE_YEAR: [Ianuarie, Februarie, Martie, Aprilue, Mai, Iunie, Iulie, August, Septembrie, Octombrie, Noiembrie, Decembrie]
   DAYS_OF_THE_WEEK: [Luni, Marti, Miercuri, Joi, Vineri, Sâmbătă, Duminică]
+  READ_MORE: Citeste mai mult
 
 ru:
   SITE:
@@ -151,3 +164,4 @@ ru:
   SHARE: Поделиться
   MONTHS_OF_THE_YEAR: [Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
   DAYS_OF_THE_WEEK: [Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье]
+  READ_MORE: Подробнее

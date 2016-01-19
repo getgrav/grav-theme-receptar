@@ -1,27 +1,19 @@
 <header id="masthead" class="site-header" >
   <div class="site-branding">
-    {% if site.title  %}
     <h1 class="site-title logo type-text">
-      <a href='{{ base_url_absolute }}'>{{ site.title }}</a>
+      <a href='{{ base_url_absolute }}'>{{ 'SITE.TITLE'|t }}</a>
     </h1>
-    {% endif %}
-    {% if site.description  %}
-    <h2 class="site-description">{{ site.description }}</h2>
-    {% endif %}
+    <h2 class="site-description">{{ 'SITE.DESCRIPTION'|t }}</h2>
   </div>
 
   <section id="secondary" class="secondary">
    <div class="secondary-content">
       <div class="secondary-content-container">
         <div class="site-branding">
-          {% if site.title  %}
           <h1 class="site-title logo type-text">
-            <a href='{{ base_url_absolute }}'>{{ site.title }}</a>
+            <a href='{{ base_url_absolute }}'>{{ 'SITE.TITLE'|t }}</a>
           </h1>
-          {% endif %}
-          {% if site.description  %}
-          <h2 class="site-description">{{ site.description }}</h2>
-          {% endif %}
+          <h2 class="site-description">{{ 'SITE.DESCRIPTION'|t }}</h2>
         </div>
          <nav id="site-navigation" class="main-navigation" role="navigation" itemscope="" itemtype="http://schema.org/SiteNavigationElement">
             <span class="screen-reader-text">Receptar site navigation</span>
