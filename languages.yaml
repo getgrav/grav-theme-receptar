@@ -15,6 +15,9 @@ en:
   LATEST_RECIPES: Latest Recipes
   RELATED_POSTS: Related
   SEARCH_FIELD: Type and press enter...
+  NEXT: Next
+  PREVIOUS: Previous
+  TOPICS: topics
 
 el:
   SITE:
@@ -141,6 +144,9 @@ pl:
   LATEST_RECIPES: Ostatnie przepisy
   RELATED_POSTS: Zobacz również:
   SEARCH_FIELD: Zacznij pisać i wciśnij enter...
+  NEXT: Następny
+  PREVIOUS: Poprzedni
+  TOPICS: posty
 
 pt:
   SITE:

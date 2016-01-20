@@ -21,7 +21,7 @@
     {% do assets.addCss('theme://css/lightbox.css') %}
     {% if browser.getBrowser == 'msie' and browser.getVersion >= 7 and browser.getVersion <= 8 %}
     {% do assets.addCss('theme://css/ie.css') %}
-    {% endif %}
+  {% endif %}
   {% endblock %}
   {{ assets.css() }}
 

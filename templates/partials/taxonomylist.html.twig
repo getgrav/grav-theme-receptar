@@ -4,7 +4,7 @@
 <div class="tagcloud">
     {% for tax,value in taxlist[taxonomy] %}
       {% set active = uri.param(taxonomy) == tax ? 'active' : '' %}
-      <a class="{{ active }}" title="{{ value }} topics" href="{{ base_url_absolute }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax|e('url') }}">{{ tax }}</a>
+      <a class="{{ active }}" title="{{ value }} {{ 'TOPICS'|t }}" href="{{ base_url_absolute }}/{{ taxonomy }}{{ config.system.param_sep }}{{ tax|e('url') }}">{{ tax }}</a>
     {% endfor %}
 </div>
 {% endif %}
