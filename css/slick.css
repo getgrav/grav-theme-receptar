@@ -138,7 +138,7 @@
 				height: 0;
 				padding: 0;
 			}
-			.site-banner .slider-nav { z-index: 1; }
+			.site-banner .slider-nav { z-index: 0; }
 
 			.site-banner .slick-prev,
 			.site-banner .slick-next {
