@@ -94,14 +94,23 @@ fi:
 fr:
   SITE:
     TITLE: Mon blogue
-    DESCRIPTION: Blogages sur ceci et cela
-    COPYRIGHT: Tous droits réservés © %s Votre Entreprise
+    DESCRIPTION: Blog à propos de tout et de rien
+    COPYRIGHT: © Copyright %s Votre Entreprise
   SUBSCRIBE: Abonnez-vous
   TWEET: Twittez
   SHARE: Partagez
   MONTHS_OF_THE_YEAR: [Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
   DAYS_OF_THE_WEEK: [Lundi, Mardi, Mercredi, Jeudi, Vendredi, Samedi, Dimanche]
   READ_MORE: Lire la suite
+  SEARCH: Rechercher
+  RANDOM_ARTICLE: Article aléatoire
+  POPULAR_TAGS: Tags populaires
+  LATEST_RECIPES: Dernières recettes
+  RELATED_POSTS: En relation
+  SEARCH_FIELD: Renseignez et pressez Entrer...
+  NEXT: Suivant
+  PREVIOUS: Précédent
+  TOPICS: thèmes
 
 nl:
   SITE:
