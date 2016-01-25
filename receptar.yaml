@@ -1,8 +1,2 @@
 enabled: true
 default_lang: en
-streams:
-  scheme:
-    theme:
-      type: ReadOnlyStream
-      paths:
-        - user/themes/receptar
