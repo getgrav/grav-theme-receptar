@@ -11,3 +11,17 @@ demo: http://demo.getgrav.org/receptar-skeleton
 keywords: receptar, theme, cookbook, split-screen, fast, responsive, html5, css3
 bugs: https://github.com/getgrav/grav-theme-receptar/issues
 license: GPL2
+
+form:
+  validation: loose
+  fields:
+    showchildpages.enabled:
+        type: toggle
+        label: Show child pages in navbar
+        highlight: 1
+        default: 1
+        options:
+          1: PLUGIN_ADMIN.ENABLED
+          0: PLUGIN_ADMIN.DISABLED
+        validate:
+          type: bool
