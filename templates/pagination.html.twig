@@ -1,18 +1,24 @@
 {% if pagination|length > 1 %}
+{% if base_url == '' %}
+    {% set base_url = '/' %}
+{% endif %}
 <div class="pagination">
     <div class="pagenavi">
     {% if pagination.hasPrev %}
-        <a rel="prev" class="prev page-numbers" href="{{ base_url }}{{ pagination.params }}{{ pagination.prevUrl }}">&laquo;</a>
+        {% set url = (base_url ~ pagination.params ~ pagination.prevUrl)|replace({'//':'/'}) %}
+        <a rel="prev" class="prev page-numbers" href="{{ url }}">&laquo;</a>
     {% endif %}
     {% for paginate in pagination %}
         {% if paginate.isCurrent %}
             <span class="page-numbers current">{{ paginate.number }}</span>
         {% elseif paginate.isInDelta %}
-            <a class="page-numbers" href="{{ base_url }}{{ pagination.params }}{{ paginate.url }}">{{ paginate.number }}</a>
+            {% set url = (base_url ~ pagination.params ~ paginate.url)|replace({'//':'/'}) %}
+            <a class="page-numbers" href="{{ url }}">{{ paginate.number }}</a>
         {% endif %}
     {% endfor %}
     {% if pagination.hasNext %}
-        <a rel="next" class="next page-numbers" href="{{ base_url }}{{ pagination.params }}{{ pagination.nextUrl }}">&raquo;</a>
+        {% set url = (base_url ~ pagination.params ~ pagination.nextUrl)|replace({'//':'/'}) %}
+        <a rel="next" class="next page-numbers" href="{{ url }}">&raquo;</a>
     {% endif %}
     </div>
 </div>

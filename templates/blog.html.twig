@@ -27,7 +27,7 @@
         </div>
 
         {% if config.plugins.pagination.enabled and collection.params.pagination %}
-        {% include 'pagination.html.twig' with {'pagination':collection.params.pagination} %}
+        {% include 'pagination.html.twig' with {'base_url': page.url, 'pagination':collection.params.pagination} %}
         {% endif %}
 
     {% endblock %}
