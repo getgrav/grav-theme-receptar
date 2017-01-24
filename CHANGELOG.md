@@ -1,8 +1,9 @@
 # v1.3.0
-## 07/xx/2016
+## xx/xx/2017
 
 1. [](#bugfix)
     * Fix issue when editing the Widget page from Admin
+    * Add showchildpages.enabled config option [#6](https://github.com/getgrav/grav-theme-receptar/pull/6)
 
 # v1.2.0
 ## 07/14/2016
