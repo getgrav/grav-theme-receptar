@@ -1,5 +1,5 @@
 # v1.3.0
-## xx/xx/2017
+## 01/24/2017
 
 1. [](#bugfix)
     * Fix issue when editing the Widget page from Admin
