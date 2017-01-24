@@ -1,3 +1,4 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
 <html lang="{{ grav.language.getLanguage ?: 'en' }}" class='{% if browser.getBrowser == 'msie' and browser.getVersion == 7 and browser.getVersion == 8 %}{% else %}v2{% endif %} {% if browser.getBrowser == 'msie' and browser.getVersion == 7 %}ie ie7 ltie8 ltie9{% endif %} {% if browser.getBrowser == 'msie' and browser.getVersion == 8 %}ie ie8 ltie9{% endif %}'>
 <head>
@@ -19,6 +20,7 @@
     {% do assets.addCss('theme://css/colors.css') %}
     {% do assets.addCss('theme://css/jetpack.css') %}
     {% do assets.addCss('theme://css/lightbox.css') %}
+    {% do assets.addCss('theme://css/custom.css') %}
     {% if browser.getBrowser == 'msie' and browser.getVersion >= 7 and browser.getVersion <= 8 %}
     {% do assets.addCss('theme://css/ie.css') %}
   {% endif %}
