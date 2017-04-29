@@ -1,3 +1,11 @@
+# v1.4.0
+## 04/29/2017
+
+1. [](#optimize)
+    * The white comments background to simplify the setup of commenting services (for example, HyperComments ...)
+   [](#improved)
+    * Added Multi-language "Comments"
+
 # v1.3.0
 ## 01/24/2017
 
