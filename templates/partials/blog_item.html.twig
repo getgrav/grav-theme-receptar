@@ -209,7 +209,7 @@
       {% if config.plugins.jscomments.enabled and config.plugins.jscomments.provider %}
       <div class="comments-area-wrapper">
         <div class="comments-area">
-        <h2 class="comments-title">Comments:</h2>
+        <h2 class="comments-title">{{ 'COMMENTS'|t }}:</h2>
           {{ jscomments(config.plugins.jscomments.provider) }}
         </div>
       </div>
@@ -218,7 +218,7 @@
       {% if config.plugins.comments.enabled %}
       <div class="comments-area-wrapper">
         <div class="comments-area">
-          <h2 class="comments-title">{{ grav.twig.comments|length }} Comments:</h2>
+          <h2 class="comments-title">{{ grav.twig.comments|length }} {{ 'COMMENTS'|t }}:</h2>
           {% include 'partials/comments.html.twig' with {'page': page} %}
         </div>
       </div>

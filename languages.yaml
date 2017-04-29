@@ -18,6 +18,7 @@ en:
   NEXT: Next
   PREVIOUS: Previous
   TOPICS: topics
+  COMMENTS: Comments
 
 el:
   SITE:
@@ -30,6 +31,7 @@ el:
   MONTHS_OF_THE_YEAR: [Ιανουάριος, Φεβρουάριος, Μάρτιος, Απρίλιος, Μάιος, Ιούνιος, Ιούλιος, Αύγουστος, Σεπτέμβριος, Οκτώβριος, Νοέμβριος, Δεκέμβριος]
   DAYS_OF_THE_WEEK: [Δευτέρα, Τρλιτη, Τετάρτη, Πέμπτη, Παρασκευή, Σαββάτο, Κυριακή]
   READ_MORE: Διαβάστε περισσότερα
+  COMMENTS: Σχόλια
 
 es:
   SITE:
@@ -42,6 +44,7 @@ es:
   MONTHS_OF_THE_YEAR: [Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Augosto, Septiembre, Octubre, Noviembre, Diciembre]
   DAYS_OF_THE_WEEK: [Lunes, Martes, Miércoles, Jueves, Viernes, Sábado, Domingo]
   READ_MORE: Leer Más
+  COMMENTS: Comentarios
 
 cs:
   SITE:
@@ -54,6 +57,7 @@ cs:
   MONTHS_OF_THE_YEAR: [Leden, Únor, Březen, Duben, Květen, Červen, Červenec, Srpen, Září, Říjen, Listopad, Prosinec]
   DAYS_OF_THE_WEEK: [Pondělí, Úterý, Středa, Čtvrtek, Pátek, Sobota, Neděle]
   READ_MORE: Čtěte více
+  COMMENTS: Komentáře
 
 de:
   SITE:
@@ -66,6 +70,7 @@ de:
   MONTHS_OF_THE_YEAR: [Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
   DAYS_OF_THE_WEEK: [Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag, Sonntag]
   READ_MORE: Lesen Sie weiter
+  COMMENTS: Bemerkungen
 
 it:
   SITE:
@@ -78,6 +83,7 @@ it:
   MONTHS_OF_THE_YEAR: [Gennaio, Febbraio, Marzo, Cprile, Maggio, Giugno, Luglio, Agosto, Settembre, Ottobre, Novembre, Dicembre]
   DAYS_OF_THE_WEEK: [Lunedi, Martedi, Mercoledi, Giovedi, Venerdi, Sabato, Domenica]
   READ_MORE: Per saperne di più
+  COMMENTS: Commenti
 
 fi:
   SITE:
@@ -90,6 +96,7 @@ fi:
   MONTHSOFTHE_YEAR: [Tammikuu, Helmikuu, Maaliskuu, Huhtikuu, Toukokuu, Kesäkuu, Heinäkuu, Elokuu, Syyskuu, Lokakuu, Marraskuu, Joulukuu]
   DAYSOFTHE_WEEK: [Maanantai, Tiistai, Keskiviikko, Torstai, Perjantai, Lauantai, Sunnuntai]
   READ_MORE: Lue lisää
+  COMMENTS: Kommentit
 
 fr:
   SITE:
@@ -111,6 +118,7 @@ fr:
   NEXT: Suivant
   PREVIOUS: Précédent
   TOPICS: thèmes
+  COMMENTS: Commentaires
 
 nl:
   SITE:
@@ -123,6 +131,7 @@ nl:
   MONTHS_OF_THE_YEAR: [Januari, Februari, Maart, April, Mei Juni, Juli, Augustus, September, Oktober, November, December]
   DAYS_OF_THE_WEEK: [Maandag, Dinsdag, Woensdag, Donderdag, Vrijdag, Zaterdag, Zondag]
   READ_MORE: Read More
+  COMMENTS: Reacties
 
 nb:
   SITE:
@@ -135,6 +144,7 @@ nb:
   MONTHS_OF_THE_YEAR: [januar, februar, mars, april, mai, juni, juli, august, september, oktobernovember, desember]
   DAYS_OF_THE_WEEK: [mandag, tirsdag, onsdag, torsdag, fredag, lørdag, søndag]
   READ_MORE: Les mer
+  COMMENTS: Kommentarer
 
 pl:
   SITE:
@@ -156,6 +166,7 @@ pl:
   NEXT: Następny
   PREVIOUS: Poprzedni
   TOPICS: posty
+  COMMENTS: Komentarze
 
 pt:
   SITE:
@@ -168,6 +179,7 @@ pt:
   MONTHS_OF_THE_YEAR: [Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
   DAYS_OF_THE_WEEK: [Segunda, Terça, Quarta, Quinta, Sexta, Sábado, Domingo]
   READ_MORE: Leia mais
+  COMMENTS: Comentários
 
 ro:
   SITE:
@@ -180,6 +192,7 @@ ro:
   MONTHS_OF_THE_YEAR: [Ianuarie, Februarie, Martie, Aprilue, Mai, Iunie, Iulie, August, Septembrie, Octombrie, Noiembrie, Decembrie]
   DAYS_OF_THE_WEEK: [Luni, Marti, Miercuri, Joi, Vineri, Sâmbătă, Duminică]
   READ_MORE: Citeste mai mult
+  COMMENTS: Comentarii
 
 ru:
   SITE:
@@ -192,3 +205,4 @@ ru:
   MONTHS_OF_THE_YEAR: [Январь, Февраль, Март, Апрель, Май, Июнь, Июль, Август, Сентябрь, Октябрь, Ноябрь, Декабрь]
   DAYS_OF_THE_WEEK: [Понедельник, Вторник, Среда, Четверг, Пятница, Суббота, Воскресенье]
   READ_MORE: Подробнее
+  COMMENTS: Комментарии
