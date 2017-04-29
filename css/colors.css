@@ -58,12 +58,12 @@
 			.not-scrolled.paged .site-header,
 			.pagination,
 			.posts,
-			.comments-area-wrapper,
 			.posts .entry-inner:after { background-color: #2a2c2e; }
 
 				.widget .tagcloud a:before { background-color: #2a2c2e; } /* * */
 
 			.secondary { background-color: #1a1c1e; }
+			.comments-area-wrapper { background-color: #ffffff; }
 
 		/* Accent background color */
 

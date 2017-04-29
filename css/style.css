@@ -1415,8 +1415,8 @@
  */
 
 	.comments-area-wrapper {
-		padding: 5rem 0 3.62rem;
-		margin: 3.62rem -19.44% -3.62rem;
+		padding: 0 0 3.62rem;
+		margin: 0 -19.44% -3.62rem;
 	}
 	.home.is-singular .comments-area-wrapper {
 		padding: 5rem 30.64% 3.62rem;
