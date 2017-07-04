@@ -35,7 +35,6 @@ form:
               name: ingredients_title
               type: text
               label: ADMIN.INGREDIENTS_TITLE
-              default: ADMIN.INGREDIENTS
             header.ingredients:
               name: ingredients
               type: list
