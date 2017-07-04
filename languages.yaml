@@ -3,6 +3,15 @@ en:
     TITLE: My Blog
     DESCRIPTION: Blogging about stuff
     COPYRIGHT: © Copyright %s Your Company
+  ADMIN:
+    RECIPE: Recipe
+    DESCRIPTION: Description
+    DESCRIPTION_LABEL: Advanced recipe description
+    OPTION: Option
+    VALUE: Value
+    INGREDIENTS: Ingredients
+    INGREDIENTS_TITLE: Heading
+    COLUMN_TITLE: Column heading
   SUBSCRIBE: Subscribe
   TWEET: Tweet
   SHARE: Share
@@ -60,6 +69,15 @@ de:
     TITLE: Mein Blog
     DESCRIPTION: Blogging über dies und das
     COPYRIGHT: © Copyright %s deine Firma
+  ADMIN:
+    RECIPE: Rezept
+    DESCRIPTION: Beschreibung
+    DESCRIPTION_LABEL: Erweiterte Beschreibung des Rezepts
+    OPTION: Option
+    VALUE: Wert
+    INGREDIENTS: Zutaten
+    INGREDIENTS_TITLE: Überschrift
+    COLUMN_TITLE: Spaltentitel
   SUBSCRIBE: Abonnieren
   TWEET: Tweeten
   SHARE: Teilen

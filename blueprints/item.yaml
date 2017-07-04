@@ -1,0 +1,50 @@
+title: Item
+'@extends':
+    type: default
+    context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      fields:
+        recipe-options:
+          type: tab
+          title: ADMIN.RECIPE
+          fields:
+            Description:
+              type: section
+              title: ADMIN.DESCRIPTION
+              underline: true
+            header.description:
+              name: description
+              type: list
+              label: ADMIN.DESCRIPTION_LABEL
+              fields:
+                .option:
+                  type: text
+                  label: ADMIN.OPTION
+                .value:
+                  type: text
+                  label: ADMIN.VALUE
+
+            Ingredients:
+              type: section
+              title: ADMIN.INGREDIENTS
+              underline: true
+            header.ingredients_title:
+              name: ingredients_title
+              type: text
+              label: ADMIN.INGREDIENTS_TITLE
+              default: ADMIN.INGREDIENTS
+            header.ingredients:
+              name: ingredients
+              type: list
+              label: ADMIN.INGREDIENTS
+              fields:
+                .title:
+                  type: text
+                  label: ADMIN.COLUMN_TITLE
+                .list:
+                  type: array
+                  label: ADMIN.INGREDIENTS
+                  value_only: true
