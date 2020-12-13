@@ -3,7 +3,7 @@
   <div class="entry-media {% if truncate %}entry-{% if page.header.youtube or page.header.soundcloud or page.header.vimeo %}video{% else %}image{% endif %}{% else %} resp_video{% endif %}">
     <figure class="post-thumbnail">
       {% if page.media.images|first %}
-      {{ page.media.images|first.cropZoom(338,451).html('','', 'attachment-receptar-featured size-receptar-featured wp-post-image') }}
+      {{ page.media.images|first.cropZoom(338,451).html('','', 'attachment-receptar-featured size-receptar-featured wp-post-image')|raw }}
       {% else %}
       <img class="attachment-receptar-featured size-receptar-featured wp-post-image" src="{{ theme_url }}/images/{{ site.global_featured_image }}">
       {% endif %}
@@ -16,7 +16,7 @@
       <header class="entry-header">
         {% if page.header.link %}
         <h1 class="entry-title">
-          {% if page.header.continue_link is not sameas(false) %}
+          {% if page.header.continue_link is not same as(false) %}
           <a href="{{ page.url }}"><i class="fa fa-angle-double-right"></i></a>
           {% endif %}
           <a href="{{ page.header.link }}">{{ page.title }}</a>
@@ -137,8 +137,8 @@
         {% endif %}
         <div class="clear"></div>
 
-        {% if page.header.continue_link is sameas(false) %}
-          {{ page.content }}
+        {% if page.header.continue_link is same as(false) %}
+          {{ page.content|raw }}
         {% if not truncate %}
           {% set show_prev_next = true %}
         {% endif %}
@@ -146,16 +146,16 @@
           {% if site.summary.striptags == true %}
             {{ page.summary|striptags }}
           {% else %}
-            {{ page.summary }}
+            {{ page.summary|raw }}
           {% endif %}
         {% elseif truncate %}
           {{ page.content|truncate(550) }}
         {% else %}
-          {{ page.content }}
+          {{ page.content|raw }}
           {% set show_prev_next = true %}
         {% endif %}
 
-        {% if page.header.continue_link is not sameas(false) %}
+        {% if page.header.continue_link is not same as(false) %}
         {% if truncate and page.summary != page.content %}
         <div class="link-more"><a href="{{ page.url }}">{{ 'READ_MORE'|t }}</a></div>
         {% elseif truncate %}
