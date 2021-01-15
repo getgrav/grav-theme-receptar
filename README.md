@@ -29,7 +29,7 @@ It features split-screen book-like design inspired by a modern cook book with em
 
 Installing the Receptar theme can be done in one of two ways. Our GPM (Grav Package Manager) installation method enables you to quickly and easily install the theme with a simple terminal command, while the manual method enables you to do so via a zip file.
 
-The theme by itself is useful, but you may have an easier time getting up and running by installing a skeleton. The [Receptar Site Skeleton](https://github.com/getgrav/grav-skeleton-receptar-blog) is a self-contained repository for a complete sites which includes: sample content, configuration, theme, and plugins.
+The theme by itself is useful, but you may have an easier time getting up and running by installing a skeleton. The [Receptar Site Skeleton](https://github.com/getgrav/grav-skeleton-receptar-site) is a self-contained repository for a complete sites which includes: sample content, configuration, theme, and plugins.
 
 ## GPM Installation (Preferred)
 

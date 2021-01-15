@@ -1,6 +1,6 @@
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
-<html lang="{{ grav.language.getLanguage ?: 'en' }}" class='{% if browser.getBrowser == 'msie' and browser.getVersion == 7 and browser.getVersion == 8 %}{% else %}v2{% endif %} {% if browser.getBrowser == 'msie' and browser.getVersion == 7 %}ie ie7 ltie8 ltie9{% endif %} {% if browser.getBrowser == 'msie' and browser.getVersion == 8 %}ie ie8 ltie9{% endif %}'>
+<html lang="{{ grav.language.getActive ?: grav.config.site.default_lang }}" class='{% if browser.getBrowser == 'msie' and browser.getVersion == 7 and browser.getVersion == 8 %}{% else %}v2{% endif %} {% if browser.getBrowser == 'msie' and browser.getVersion == 7 %}ie ie7 ltie8 ltie9{% endif %} {% if browser.getBrowser == 'msie' and browser.getVersion == 8 %}ie ie8 ltie9{% endif %}'>
 <head>
   {% block head %}
   <meta charset="utf-8" />
@@ -22,24 +22,26 @@
     {% do assets.addCss('theme://css/lightbox.css') %}
     {% do assets.addCss('theme://css/custom.css') %}
     {% if browser.getBrowser == 'msie' and browser.getVersion >= 7 and browser.getVersion <= 8 %}
-    {% do assets.addCss('theme://css/ie.css') %}
-  {% endif %}
+      {% do assets.addCss('theme://css/ie.css') %}
+    {% endif %}
   {% endblock %}
-  {{ assets.css() }}
 
   {% block javascripts %}
     {% do assets.add('jquery',101) %}
     {% do assets.add('theme://js/slick.min.js') %}
     {% do assets.add('theme://js/scripts-global.js') %}
-
   {% endblock %}
-  {{ assets.js() }}
 
   {% if singular %}
   <style id='receptar-stylesheet-inline-css' type='text/css'>.entry-media{background-image:url({% if page.media.images|first %}{{ page.media.images|first.url }}{% else %}{{ theme_url }}/images/{{ site.global_featured_image }}{% endif %})}</style>
   {% endif %}
 
-  {% endblock head %}
+
+  {% block assets deferred %}
+    {{ assets.css()|raw }}
+      {{ assets.js()|raw }}
+  {% endblock %}
+{% endblock head %}
 </head>
 <body id="top" class="{% if template_body_classes %}{{ template_body_classes }}{% else %}fl-builder blog has-featured-posts is-not-singular{% endif %}{{ page.header.body_classes }}">
   <div id="page" class="hfeed site">
@@ -62,5 +64,6 @@
   </div>
 </div>
 
+{{ assets.js('bottom')|raw }} 
 </body>
 </html>

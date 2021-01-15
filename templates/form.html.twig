@@ -10,7 +10,7 @@
          <figure class="post-thumbnail" itemprop="image">
            <a href="{{ page.url }}">
              {% if banner %}
-               {{ banner.cropZoom(480,640).html('','', 'attachment-thumbnail size-thumbnail wp-post-image') }}
+               {{ banner.cropZoom(480,640).html('','', 'attachment-thumbnail size-thumbnail wp-post-image')|raw }}
              {% else %}
                <img class="attachment-thumbnail size-thumbnail wp-post-image" src="{{ theme_url }}/images/{{ site.global_featured_image }}">
              {% endif %}
@@ -22,7 +22,7 @@
             <h1 class="entry-title">{{ page.header.title }}</h1>
          </header>
          <div class="entry-content contact-form" itemprop="description">
-           {{ content }}
+           {{ content|raw }}
            {% if config.plugins.form.enabled %}
            {% include "forms/form.html.twig" %}
            {% endif  %}

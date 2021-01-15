@@ -6,7 +6,7 @@
     <header class="page-header">
       <h1 class="page-title">Error {{ page.header.http_response_code }}</h1>
     </header>
-    <p>{{ page.content }}</p>
+    <p>{{ page.content|raw }}</p>
   </section>
 </main>
 {% endblock %}

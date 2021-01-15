@@ -1,3 +1,12 @@
+# v1.4.0
+## 01/15/2021
+
+1. [](#improved)
+    * Fixed autoescaping in preparation for Grav 1.7
+1. [](#new)
+    * Set Dependency of Grav 1.5.10+ which has support for new **Deferred Block** Twig extension
+    * Implement assets rendering using **Deferred Block** Twig extension 
+
 # v1.3.0
 ## 01/24/2017
 

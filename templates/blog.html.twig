@@ -18,7 +18,7 @@
 
     {% block content %}
 
-    {{ page.content }}
+    {{ page.content|raw }}
 
         <div id="posts" class="posts posts-list clearfix">
           {% for child in collection %}
