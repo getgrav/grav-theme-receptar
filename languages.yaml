@@ -4,6 +4,7 @@ en:
     DESCRIPTION: Blogging about stuff
     COPYRIGHT: © Copyright %s Your Company
   ADMIN:
+    PAGE_CONTENT_WITHOUT_SUMMARY: Display page content without summary
     RECIPE: Recipe
     DESCRIPTION: Description
     DESCRIPTION_LABEL: Advanced recipe description

@@ -33,7 +33,7 @@
   {% endblock %}
 
   {% if singular %}
-  <style id='receptar-stylesheet-inline-css' type='text/css'>.entry-media{background-image:url({% if page.media.images|first %}{{ page.media.images|first.url }}{% else %}{{ theme_url }}/images/{{ site.global_featured_image }}{% endif %})}</style>
+  <style id='receptar-stylesheet-inline-css' type='text/css'>.entry-media{background-image:url({% if page.media.images|first %}{{ page.media.images|first.url|url_encode }}{% else %}{{ theme_url }}/images/{{ site.global_featured_image }}{% endif %})}</style>
   {% endif %}
 
 

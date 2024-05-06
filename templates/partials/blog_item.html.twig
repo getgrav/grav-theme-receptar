@@ -1,6 +1,15 @@
+{% set _page_content = page.summary %}
+{% if display_mode_full and page.header.page_content_without_summary %}
+  {% set _page_content = page.content|slice(page.summary|length) %}
+{% elseif display_mode_full %}
+  {% set _page_content = page.content %}
+{% elseif not display_mode_full and site.summary.striptags == true and page.summary != page.content %}
+  {% set _page_content =  page.summary|striptags %}
+{% endif %}
+
 <article id="post-{{ loop.index }}" class="post-{{ loop.index }} post type-post status-publish format-standard has-post-thumbnail hentry category-cakes tag-no-excerpt">
 
-  <div class="entry-media {% if truncate %}entry-{% if page.header.youtube or page.header.soundcloud or page.header.vimeo %}video{% else %}image{% endif %}{% else %} resp_video{% endif %}">
+  <div class="entry-media {% if not display_mode_full %}entry-{% if page.header.youtube or page.header.soundcloud or page.header.vimeo %}video{% else %}image{% endif %}{% else %} resp_video{% endif %}">
     <figure class="post-thumbnail">
       {% if page.media.images|first %}
       {{ page.media.images|first.cropZoom(338,451).html('','', 'attachment-receptar-featured size-receptar-featured wp-post-image')|raw }}
@@ -11,7 +20,7 @@
   </div>
 
   <div class="entry-inner">
-    <div class="entry-inner{% if truncate %}-content{% endif %}">
+    <div class="entry-inner{% if not display_mode_full %}-content{% endif %}">
 
       <header class="entry-header">
         {% if page.header.link %}
@@ -24,7 +33,7 @@
         {% else %}
         <h1 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
         {% endif %}
-        {% if not truncate %}
+        {% if display_mode_full %}
         <div class="entry-category">
           {% if page.taxonomy.category %}
           <span class="cat-links entry-meta-element">
@@ -37,7 +46,7 @@
         {% endif %}
       </header>
 
-      {% if not truncate %}
+      {% if display_mode_full %}
       <div class="entry-meta entry-meta-bottom">
         <time datetime="{{ 'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }} {{ page.date|date("d, Y") }}" class="entry-date entry-meta-element published" title="{{ 'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }} {{ page.date|date("d, Y") }}" itemprop="datePublished">{{ 'MONTHS_OF_THE_YEAR'|ta(post.date|date('n') - 1) }} {{ page.date|date("d, Y") }}</time>
 
@@ -71,7 +80,7 @@
 
       <div class="entry-content">
 
-        {% if not truncate %}
+        {% if display_mode_full %}
         {% if page.header.description %}
         <div class="fl-module fl-module-rich-text text-center" style="margin-bottom: 6%;">
           <p>
@@ -86,7 +95,8 @@
         {% if page.header.youtube or page.header.vimeo or page.header.soundcloud %}
         <div class="fit-vids-style">
         <style>
-        .fluid-width-video-wrapper {width: 100%;position: relative;padding: 0;}                                                                                   .fluid-width-video-wrapper iframe, .fluid-width-video-wrapper object, .fluid-width-video-wrapper embed { position: absolute; top: 0;                                  left: 0; width: 100%; height: 100%;}
+        .fluid-width-video-wrapper {width: 100%;position: relative;padding: 0;}
+        .fluid-width-video-wrapper iframe, .fluid-width-video-wrapper object, .fluid-width-video-wrapper embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
         </style>
         </div>
 
@@ -137,33 +147,17 @@
         {% endif %}
         <div class="clear"></div>
 
-        {% if page.header.continue_link is same as(false) %}
-          {{ page.content|raw }}
-        {% if not truncate %}
-          {% set show_prev_next = true %}
-        {% endif %}
-        {% elseif truncate and page.summary != page.content %}
-          {% if site.summary.striptags == true %}
-            {{ page.summary|striptags }}
-          {% else %}
-            {{ page.summary|raw }}
-          {% endif %}
-        {% elseif truncate %}
-          {{ page.content|truncate(550) }}
-        {% else %}
-          {{ page.content|raw }}
-          {% set show_prev_next = true %}
-        {% endif %}
-
+        {{ _page_content|raw }}
+        
         {% if page.header.continue_link is not same as(false) %}
-        {% if truncate and page.summary != page.content %}
+        {% if not display_mode_full and page.summary != page.content %}
         <div class="link-more"><a href="{{ page.url }}">{{ 'READ_MORE'|t }}</a></div>
-        {% elseif truncate %}
+        {% elseif not display_mode_full %}
         <div class="link-more"><a href="{{ page.url }}">{{ 'READ_MORE'|t }}</a></div>
         {% endif %}
         {% endif %}
 
-        {% if not truncate %}
+        {% if display_mode_full %}
         <div class="sharedaddy sd-sharing-enabled">
           <div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing">
             <h3 class="sd-title">{{ 'SHARE'|t }}</h3>
@@ -195,7 +189,7 @@
         {% endif %}
       </div>
 
-      {% if not truncate %}
+      {% if display_mode_full %}
       <div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
         <h3 class="jp-relatedposts-headline"><em>{{ 'RELATED_POSTS'|t }}</em></h3>
         <div class="jp-relatedposts-items jp-relatedposts-items-visual">
@@ -205,7 +199,7 @@
       <hr/>
       {% endif %}
 
-      {% if not truncate %}
+      {% if display_mode_full %}
       {% if config.plugins.jscomments.enabled and config.plugins.jscomments.provider %}
       <div class="comments-area-wrapper">
         <div class="comments-area">

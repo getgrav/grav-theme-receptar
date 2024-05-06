@@ -14,6 +14,10 @@
 {% endif  %}
 
 {% block content %}
-  {% include 'partials/blog_item.html.twig' with {'truncate':false,'big_header':true} %}
+  {# 0x01af/2024-04-21:
+  - issue: variable 'truncate' doesn't follow coding-best-practice 'don't call a variable like a given function'
+  - solution: change variable 'truncate' to 'display_mode_full'
+  #}
+  {% include 'partials/blog_item.html.twig' with {'display_mode_full':true,'big_header':true} %}
 {% endblock %}
 {% endembed %}

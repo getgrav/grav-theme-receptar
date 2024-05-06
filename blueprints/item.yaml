@@ -11,6 +11,18 @@ form:
           type: tab
           title: ADMIN.RECIPE
           fields:
+            header.page_content_without_summary:
+              name: page_content_without_summary
+              label: ADMIN.PAGE_CONTENT_WITHOUT_SUMMARY
+              type: toggle
+              highlight: 1
+              default: false
+              options:
+                true: 'YES'
+                false: 'NO'
+              validate:
+                type: boolean
+
             Description:
               type: section
               title: ADMIN.DESCRIPTION
