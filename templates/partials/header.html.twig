@@ -43,7 +43,7 @@
       <nav class="navigation post-navigation links-count-2" role="navigation">
         <h1 class="screen-reader-text">Post navigation</h1>
         <div class="nav-links">
-          {% if not page.isFirst %}
+          {% if page.nextSibling.url %}
           <div class="nav-next nav-link has-post-thumbnail">
             <a rel="next"  href="{{ page.nextSibling.url }}">
               <span class="post-title">
@@ -53,7 +53,7 @@
           </div>
           {% endif %}
 
-          {% if not page.isLast %}
+          {% if page.prevSibling.url %}
           <div class="nav-previous nav-link has-post-thumbnail">
             <a rel="prev" href="{{ page.prevSibling.url }}">
               <span class="post-title">

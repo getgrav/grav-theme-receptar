@@ -22,7 +22,7 @@
 
         <div id="posts" class="posts posts-list clearfix">
           {% for child in collection %}
-            {% include 'partials/blog_item.html.twig' with {'page':child, 'truncate':true} %}
+            {% include 'partials/blog_item.html.twig' with {'page':child, 'display_full_mode':false} %}
           {% endfor %}
         </div>
 
