@@ -3,7 +3,7 @@
 <div class="comment-holder">
   <div class="comment-thread">
     <ol class="comment-list">
-      {% for comment in grav.twig.comments|array_reverse %}
+      {% for comment in grav.twig.comments|reverse %}
       <li class="comment byuser bypostauthor thread-{% if loop.index is even %}even{% else %}odd{% endif %} depth-1 parent">
         <article id="div-comment-{{ loop.index }}" class="comment-body">
           <div class="comment-meta" kind="m">

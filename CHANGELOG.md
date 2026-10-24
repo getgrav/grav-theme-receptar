@@ -1,3 +1,15 @@
+# v1.4.1
+## 10/23/2026
+
+1. [](#improved)
+    * Multiple bugfixes and enhancements [#26](https://github.com/getgrav/grav-theme-receptar/pull/26)
+    * Recipe descriptions and ingredients can be edited in the admin [#14](https://github.com/getgrav/grav-theme-receptar/pull/14)
+1. [](#bugfix)
+    * Blog posts with comments no longer fail on Grav 2, which dropped the `array_reverse` filter the comment list used
+    * Vimeo videos play again on Grav 2
+    * The previous and next links are hidden when there is no previous or next post [#17](https://github.com/getgrav/grav-theme-receptar/pull/17)
+    * Fonts load over https on secure pages [#15](https://github.com/getgrav/grav-theme-receptar/pull/15)
+
 # v1.4.0
 ## 01/15/2021
 
